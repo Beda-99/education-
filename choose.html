@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Portal | Beacon Education</title>
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --brand: #3b82f6;
+            --accent: #10b981;
+            --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        body { 
+            background: var(--bg-gradient);
+            min-height: 100vh;
+            color: var(--primary);
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .logo { 
+            color: white; 
+            font-weight: 800; 
+            font-size: 1.6rem; 
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo span { color: var(--brand); }
+
+        .nav-menu a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-weight: 600;
+            margin-left: 25px;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+        .nav-menu a:hover { color: var(--brand); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            padding: 100px 8% 140px;
+            text-align: center;
+            background: var(--primary);
+            color: white;
+            clip-path: ellipse(150% 100% at 50% 0%);
+        }
+        .hero h1 { 
+            font-size: 3.5rem; 
+            font-weight: 800; 
+            letter-spacing: -2px;
+            margin-bottom: 20px;
+        }
+        .hero p { 
+            font-size: 1.2rem; 
+            color: #94a3b8;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* --- CARD GRID --- */
+        .main-content {
+            max-width: 1200px;
+            margin: -80px auto 100px;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .pro-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            padding: 45px;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        }
+
+        .pro-card:hover {
+            transform: translateY(-12px);
+            background: white;
+            box-shadow: 0 30px 60px rgba(15, 23, 42, 0.1);
+            border-color: var(--brand);
+        }
+
+        .level-tag {
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--brand);
+            background: #eff6ff;
+            padding: 6px 15px;
+            border-radius: 50px;
+            align-self: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .pro-card h3 { 
+            font-size: 1.8rem; 
+            margin-bottom: 12px;
+            color: var(--primary);
+        }
+
+        .pro-card p {
+            color: #64748b;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .card-footer {
+            margin-top: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .arrow {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+        }
+        .pro-card:hover .arrow { 
+            background: var(--brand); 
+            transform: translateX(5px);
+         }
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 80px 8% 40px;
+        }
+
+        .footer-wrap {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 100px;
+            margin-bottom: 60px;
+        }
+
+        .footer-col h4 {
+            color: var(--brand);
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .footer-col p { color: #94a3b8; line-height: 1.8; margin-bottom: 20px; }
+
+        .footer-col a {
+            display: block;
+            color: #94a3b8;
+            text-decoration: none;
+            margin-bottom: 12px;
+            transition: 0.3s;
+        }
+        .footer-col a:hover { color: white; transform: translateX(5px); }
+
+        .bottom-bar {
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 30px;
+            text-align: center;
+            color: #475569;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">Beacon Education<span>🖱</span></a>
+        <div class="nav-menu">
+            <a href="about.html">About us</a>
+            <a href="#">Parent Login</a>
+            <a href="create.html" style="border: 1px solid var(--brand); padding: 8px 20px; border-radius: 8px; color: var(--brand);">log out</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>Excellence in Learning</h1>
+        <p>A sophisticated digital curriculum designed for the ambitious students of Rwanda. Select your academic milestone to proceed.</p>
+    </header>
+
+    <main class="main-content" id="card-grid">
+        </main>
+
+    <script>
+        // EDIT THESE LINKS EASILY HERE:
+        const grades = [
+            { id: "01", name: "Primary One",   url: "p1.html", desc: "Building core literacy and numerical logic." },
+            { id: "02", name: "Primary Two",   url: "p2.html", desc: "Developing advanced linguistic and mathematical fluency." },
+            { id: "03", name: "Primary Three", url: "p3.html", desc: "Scientific exploration and comprehensive social studies." },
+            { id: "04", name: "Primary Four",  url: "p4.html", desc: "Integrated academic modules for holistic development." },
+            { id: "05", name: "Primary Five",  url: "p5.html", desc: "Critical thinking and analytical problem solving." },
+            { id: "06", name: "Primary Six",   url: "end of p.html", desc: "Strategic preparation for national secondary transition." }
+        ];
+
+        const grid = document.getElementById('card-grid');
+
+        grid.innerHTML = grades.map(g => `
+            <a href="${g.url}" class="pro-card">
+                <span class="level-tag">Academic Year ${g.id}</span>
+                <h3>${g.name}</h3>
+                <p>${g.desc}</p>
+                <div class="card-footer">
+                    <span>Begin Studies</span>
+                    <div class="arrow">→</div>
+                </div>
+            </a>
+        `).join('');
+    </script>
+
+    <footer>
+        <div class="footer-wrap">
+            <div class="footer-col">
+                <h2 style="margin-bottom: 20px;">Beacon Education<span>🖱</span></h2>
+                <p>Leading the digital transformation of Rwandan education. We provide high-fidelity, structured learning environments for the next generation of global leaders.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Academic Tracks</h4>
+                <a href="#">Early Years</a>
+                <a href="learn primary.html">Primary Education</a>
+                <a href="#">Certification</a>
+            </div>
+            <div class="footer-col">
+                <h4>Institutional</h4>
+                <a href="about.html">About Movement</a>
+                <a href="programs.html">Educational Quality</a>
+                <a href="privacy policy.html">Privacy Policy</a>
+            </div>
+        </div>
+        <div class="bottom-bar">
+            &copy; 2026 Beacon Education MOVEMENT. Kigali, Rwanda.
+        </div>
+    </footer>
+
+</body>
+</html>

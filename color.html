@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Magic | Beacon Education🖱</title>
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;700&family=Plus+Jakarta+Sans:wght@800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --kid-pink: #ff7eb9;
+            --kid-blue: #4fc3f7;
+            --kid-yellow: #ffeb3b;
+            --kid-green: #8bc34a;
+            --kid-purple: #9c88ff;
+            --kid-orange: #ff9f43;
+            --dark: #0f172a;
+            --white: #ffffff;
+        }
+
+        * {
+             margin: 0;
+              padding: 0; 
+              box-sizing: border-box; 
+              font-family: 'Fredoka', sans-serif;
+             }
+        
+        body { 
+            background: #fff5f8; 
+            background-image: radial-gradient(var(--kid-yellow) 1px, transparent 1px);
+            background-size: 40px 40px;
+            color: #333;
+        }
+
+        /* --- PROFESSIONAL NAVIGATION --- */
+        nav {
+            background: var(--dark);
+            padding: 1.2rem 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 2000;
+            border-bottom: 6px solid var(--kid-orange);
+        }
+        .logo {
+             color: white; 
+             font-weight: 800;
+              font-size: 1.6rem; 
+              text-decoration: none;
+               font-family: 'Plus Jakarta Sans';
+             }
+        .logo span {
+             color: var(--kid-orange);
+             }
+
+        .nav-links { 
+            display: flex; 
+            align-items: center; 
+            gap: 25px;
+         }
+        .nav-links a { 
+            color: #94a3b8;
+             text-decoration: none;
+              font-size: 0.9rem; 
+              font-weight: 700;
+               transition: 0.3s;
+             }
+        .nav-links a:hover { 
+            color: white;
+         }
+
+        .logout-btn {
+            background: #ef4444;
+            color: white !important;
+            padding: 10px 20px;
+            border-radius: 50px;
+            box-shadow: 0 4px 0 #b91c1c;
+        }
+
+        /* --- HERO HEADER --- */
+        .color-hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: white;
+            border-radius: 0 0 150px 150px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+            margin-bottom: 50px;
+        }
+        #welcome-name {
+             font-size: 4.5rem; 
+             color: var(--kid-purple); 
+             margin-bottom: 10px; 
+            }
+        .subtitle { 
+            font-size: 1.8rem; 
+            color: var(--kid-orange);
+         }
+
+        /* --- VIDEO SECTION --- */
+        .video-zone {
+            max-width: 900px;
+            margin: 0 auto 80px;
+            padding: 20px;
+            background: white;
+            border-radius: 50px;
+            border: 15px solid var(--kid-blue);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+        }
+        .video-zone h2 { 
+            text-align: center;
+             margin-bottom: 20px;
+              color: var(--kid-blue); 
+              font-size: 2.2rem;
+             }
+        .video-wrapper {
+             position: relative; 
+             padding-bottom: 56.25%;
+              height: 0; overflow: hidden; 
+              border-radius: 30px;
+             }
+        .video-wrapper iframe {
+             position: absolute;
+              top: 0;
+               left: 0;
+                width: 100%; 
+                height: 100%;
+                 border: none;
+                 }
+
+        /* --- ASSESSMENT SECTION --- */
+        .quiz-container {
+            max-width: 750px;
+            margin: 0 auto 100px;
+            background: white;
+            padding: 50px;
+            border-radius: 70px;
+            border: 12px solid var(--kid-green);
+            text-align: center;
+            box-shadow: 0 20px 0 rgba(0,0,0,0.05);
+        }
+        .quiz-container h3 {
+             font-size: 2.5rem;
+              color: var(--kid-green);
+               margin-bottom: 30px;
+             }
+
+        .magic-box {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 40px;
+            border-radius: 40px;
+            border: 10px solid #eee;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .magic-box:hover {
+             transform: scale(1.1) rotate(5deg);
+             }
+
+        .options-grid {
+             display: grid;
+              grid-template-columns: 1fr 1fr;
+               gap: 20px;
+             }
+        .opt-btn {
+            padding: 25px;
+            font-size: 1.8rem;
+            border-radius: 30px;
+            border: 4px solid #f1f5f9;
+            background: #fff;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 8px 0 #e2e8f0;
+        }
+        .opt-btn:hover {
+             background: var(--kid-yellow);
+              transform: translateY(-3px);
+               box-shadow: 0 11px 0 #d4af37;
+             }
+
+        /* --- RESULTS --- */
+        #result-screen {
+             display: none;
+             }
+        .final-score { 
+            font-size: 6rem;
+             color: var(--kid-pink);
+              margin: 20px 0;
+               font-weight: 800;
+             }
+
+        /* --- PROFESSIONAL FOOTER --- */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 80px 10% 40px;
+            border-top: 10px solid var(--kid-yellow);
+        }
+        .footer-mascots {
+             font-size: 5rem;
+              text-align: center; 
+              margin-bottom: 30px;
+               filter: drop-shadow(0 5px 0 rgba(0,0,0,0.2));
+             }
+        .footer-grid {
+             display: grid;
+              grid-template-columns: 2fr 1fr 1fr;
+               gap: 50px;
+                padding-bottom: 40px;
+                 border-bottom: 1px solid rgba(255,255,255,0.1);
+                 }
+        .footer-col h4 { 
+            color: var(--kid-orange);
+             margin-bottom: 20px;
+              text-transform: uppercase;
+               font-size: 0.8rem; 
+            }
+        .footer-col a {
+             display: block; 
+             color: #94a3b8;
+              text-decoration: none;
+               margin-bottom: 12px;
+                font-size: 0.9rem; 
+            }
+        .footer-bottom {
+             text-align: center;
+              padding-top: 40px; 
+              font-size: 0.8rem; 
+              color: #475569;
+             }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">Beacon Education<span>🖱</span></a>
+        <div class="nav-links">
+            <a href="1st of kindergaten.html">Dashboard</a>
+            <a href="resources.html">Resources</a>
+            <a href="index.html" class="logout-btn" onclick="logout()">LOG OUT</a>
+        </div>
+    </nav>
+
+    <header class="color-hero">
+        <h1 id="welcome-name">Color Magic!</h1>
+        <p class="subtitle"> let's explore the rainbow together!</p>
+    </header>
+
+    <section class="video-zone">
+        <h2>🎥 Rainbow Lesson</h2>
+        <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/zxIpA5nF_LY" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <main class="quiz-container">
+        <div id="quiz-ui">
+            <p style="color: #999; margin-bottom: 10px;">Magic Question <span id="q-num">1</span>/5</p>
+            <h3>What color is this box?</h3>
+            <div id="target-color" class="magic-box"></div>
+            <div class="options-grid" id="options-box"></div>
+        </div>
+
+        <div id="result-screen">
+            <h2 style="font-size: 3rem;">Rainbow Master! 🌈</h2>
+            <div class="final-score"><span id="score-val">0</span>/50</div>
+            <p id="feedback" style="font-size: 1.5rem; margin-bottom: 30px;"></p>
+            <button onclick="location.reload()" class="opt-btn" style="background: var(--kid-orange); color: white; width: 100%; box-shadow: 0 8px 0 #c0392b;">Play Again! 🔄</button>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-mascots">🦁🦒🐘🦓🦍</div>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h2 style="margin-bottom: 15px;">AFTER CLASS<span>🖱</span></h2>
+                <p style="color: #94a3b8;">Transforming education through magic and digital fun for every child in Rwanda.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Magic Lessons</h4>
+                <a href="ABC video.html">ABC Songs</a>
+                <a href="number.html">Number Fun</a>
+                <a href="color.html">Color Magic</a>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <a href="privacy policy.html">Privacy</a>
+                <a href="contact.html">Parents Help</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Beacon Education MOVEMENT. Built with ❤️ for Beda.
+        </div>
+    </footer>
+
+    <script>
+        // 1. GREETING LOGIC
+        const name = localStorage.getItem("userName") || "Beda";
+        document.getElementById("welcome-name").innerText = "Color Magic, " + name + "!";
+
+        // 2. RANDOM ASSESSMENT ENGINE
+        const colors = [
+            { name: "Red", code: "#ff4757" },
+            { name: "Blue", code: "#2e86de" },
+            { name: "Green", code: "#2ecc71" },
+            { name: "Yellow", code: "#f1c40f" },
+            { name: "Purple", code: "#9b59b6" },
+            { name: "Orange", code: "#e67e22" },
+            { name: "Pink", code: "#ff6b81" }
+        ];
+
+        let step = 0;
+        let score = 0;
+        let gameQuestions = [];
+
+        function initQuiz() {
+            // Pick 5 random unique colors for this session
+            gameQuestions = [...colors].sort(() => 0.5 - Math.random()).slice(0, 5);
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            const q = gameQuestions[step];
+            document.getElementById("q-num").innerText = step + 1;
+            document.getElementById("target-color").style.backgroundColor = q.code;
+            
+            const box = document.getElementById("options-box");
+            box.innerHTML = "";
+
+            // Create 4 choices: 1 correct + 3 random wrong
+            let choices = [q.name];
+            while(choices.length < 4) {
+                let r = colors[Math.floor(Math.random() * colors.length)].name;
+                if(!choices.includes(r)) choices.push(r);
+            }
+            choices.sort(() => 0.5 - Math.random());
+
+            choices.forEach(choice => {
+                const btn = document.createElement("button");
+                btn.className = "opt-btn";
+                btn.innerText = choice;
+                btn.onclick = () => {
+                    if(choice === q.name) {
+                        score += 10;
+                        alert("YAY! That's correct! 🌟");
+                    } else {
+                        alert("Oops! Keep looking at the colors! 🌈");
+                    }
+                    step++;
+                    if(step < 5) loadQuestion();
+                    else showResults();
+                };
+                box.appendChild(btn);
+            });
+        }
+
+        function showResults() {
+            document.getElementById("quiz-ui").style.display = "none";
+            document.getElementById("result-screen").style.display = "block";
+            document.getElementById("score-val").innerText = score;
+            const f = document.getElementById("feedback");
+            
+            if(score === 50) f.innerText = "AMAZING! You are a Color Expert, " + name + "!";
+            else if(score >= 30) f.innerText = "Good job! Watch the video again to get 50 points!";
+            else f.innerText = "Nice try! Let's watch the rainbow song together!";
+        }
+
+        function logout() {
+            if(confirm("Beda, do you want to leave the Magic Zone?")) {
+                localStorage.removeItem("userName");
+                window.location.href = "index.html";
+            }
+        }
+
+        initQuiz();
+    </script>
+</body>
+</html>

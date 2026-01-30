@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="logo.png" type="image/x-icon">
+<title>Kindergarten Alphabet | Beacon Education🖱</title>
+<style>
+body {
+     margin:0;
+      font-family: Arial, sans-serif;
+       background:#f4f6f8; 
+       color:#222; 
+       line-height:1.5;
+     }
+.skip-link {
+     position:absolute;
+      top:-40px; 
+      left:10px; 
+      background:#000; 
+      color:#fff;
+       padding:8px;
+        z-index:100;
+     }
+.skip-link:focus {
+     top:10px; 
+    }
+
+/* Top Buttons */
+.top-buttons {
+     display:flex;
+      gap:1rem;
+       padding:1rem;
+     }
+.top-buttons a {
+     background:#ff9800; 
+     color:#000; 
+     text-decoration:none;
+      padding:0.6rem 1.2rem;
+       border-radius:6px; 
+       font-weight:bold;
+     }
+
+/* Header */
+header {
+     background:#0055a5;
+      color:white; 
+      padding:1rem 2rem; 
+      text-align:center; 
+      border-radius:0 0 8px 8px; 
+    }
+header h1 { 
+    font-size:2rem;
+ }
+
+/* Main */
+main { 
+    max-width:1200px;
+     margin:2rem auto; 
+     padding:0 1rem;
+     }
+
+/* Alphabet Grid */
+.alphabet-grid {
+     display:grid; 
+     grid-template-columns:repeat(auto-fit, minmax(120px,1fr));
+      gap:1rem;
+     }
+.letter-card {
+     background:white;
+      border-radius:12px;
+       text-align:center; 
+       padding:1.5rem; 
+       border-left:6px solid #ff9800;
+        cursor:pointer; 
+        transition:transform 0.3s, box-shadow 0.3s; 
+    }
+.letter-card:hover, .letter-card:focus { 
+    transform:translateY(-5px); 
+    box-shadow:0 10px 20px rgba(0,0,0,0.15); 
+    outline:3px solid #ff9800;
+ }
+.letter-card img { 
+    width:80px; 
+    height:80px;
+     object-fit:contain; 
+     margin-bottom:0.5rem;
+     }
+.letter-card h3 {
+     font-size:1.5rem;
+      color:#ff9800;
+       margin-bottom:0.5rem;
+     }
+.letter-card p {
+     font-size:1rem;
+     }
+
+/* Video Section */
+.video-section {
+     text-align:center;
+      margin-top:2rem;
+     }
+.video-section iframe { 
+    width:100%; 
+    max-width:600px; 
+    height:350px;
+     border-radius:12px;
+     }
+
+/* Footer */
+footer {
+     background:#0055a5;
+      color:white; 
+      text-align:center; 
+      padding:2rem; 
+      margin-top:2rem;
+       border-top:5px solid #ff9800; 
+    }
+footer .footer-content { 
+    display:flex;
+     flex-wrap:wrap;
+      justify-content:space-around;
+     }
+footer .footer-section { 
+    margin:1rem; 
+}
+footer h3 {
+     margin-bottom:1rem;
+      color:#ffeb3b; 
+    }
+footer a { color:white; 
+    text-decoration:none;
+     display:block;
+      margin:0.3rem 0;
+     }
+footer a:hover { 
+    text-decoration:underline;
+ }
+footer p {
+     margin-top:1rem;
+      font-size:0.9rem;
+     }
+
+@media(max-width:768px){ .alphabet-grid { 
+    grid-template-columns:repeat(auto-fit,minmax(100px,1fr)); 
+    } }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- Top Buttons -->
+<div class="top-buttons">
+  <a href="kindergaten.html">Back</a>
+  <a href="index.html">Home</a>
+</div>
+
+<header>
+  <h1>Kindergarten Alphabet Learning</h1>
+</header>
+
+<main id="main">
+
+  <!-- Alphabet Grid -->
+  <section class="alphabet-grid">
+    <div class="letter-card" onclick="alert('A is for Apple!')">
+      <img src="https://i.postimg.cc/KvF3GZt6/apple.png" alt="Apple">
+      <h3>A</h3>
+      <p>Apple</p>
+    </div>
+    <div class="letter-card" onclick="alert('B is for Ball!')">
+      <img src="https://i.postimg.cc/1tHV1Jq2/ball.png" alt="Ball">
+      <h3>B</h3>
+      <p>Ball</p>
+    </div>
+    <div class="letter-card" onclick="alert('C is for Cat!')">
+      <img src="https://i.postimg.cc/Y9hBYPF9/cat.png" alt="Cat">
+      <h3>C</h3>
+      <p>Cat</p>
+    </div>
+    <div class="letter-card" onclick="alert('D is for Dog!')">
+      <img src="https://i.postimg.cc/8CXg9Mgh/numbers.png" alt="Dog">
+      <h3>D</h3>
+      <p>Dog</p>
+    </div>
+    <div class="letter-card" onclick="alert('E is for Elephant!')">
+      <img src="https://i.postimg.cc/43R1r8x7/elephant.png" alt="Elephant">
+      <h3>E</h3>
+      <p>Elephant</p>
+    </div>
+    <div class="letter-card" onclick="alert('F is for Fish!')">
+      <img src="https://i.postimg.cc/MHscR39y/fish.png" alt="Fish">
+      <h3>F</h3>
+      <p>Fish</p>
+    </div>
+    <div class="letter-card" onclick="alert('G is for Grapes!')">
+      <img src="https://i.postimg.cc/3R7kF8G7/grapes.png" alt="Grapes">
+      <h3>G</h3>
+      <p>Grapes</p>
+    </div>
+    <div class="letter-card" onclick="alert('H is for Hat!')">
+      <img src="https://i.postimg.cc/7Zc3QG4k/hat.png" alt="Hat">
+      <h3>H</h3>
+      <p>Hat</p>
+    </div>
+    <div class="letter-card" onclick="alert('I is for Ice cream!')">
+      <img src="https://i.postimg.cc/3xvYwYcZ/icecream.png" alt="Ice Cream">
+      <h3>I</h3>
+      <p>Ice Cream</p>
+    </div>
+    <div class="letter-card" onclick="alert('J is for Juice!')">
+      <img src="https://i.postimg.cc/3rP1YzXy/juice.png" alt="Juice">
+      <h3>J</h3>
+      <p>Juice</p>
+    </div>
+    <div class="letter-card" onclick="alert('K is for Kite!')">
+      <img src="https://i.postimg.cc/pXdQmjHf/kite.png" alt="Kite">
+      <h3>K</h3>
+      <p>Kite</p>
+    </div>
+    <div class="letter-card" onclick="alert('L is for Lion!')">
+      <img src="https://i.postimg.cc/FzF8WrCh/lion.png" alt="Lion">
+      <h3>L</h3>
+      <p>Lion</p>
+    </div>
+    <div class="letter-card" onclick="alert('M is for Monkey!')">
+      <img src="https://i.postimg.cc/ZK0yQ9Sm/monkey.png" alt="Monkey">
+      <h3>M</h3>
+      <p>Monkey</p>
+    </div>
+    <div class="letter-card" onclick="alert('N is for Nest!')">
+      <img src="https://i.postimg.cc/G3qfM8yY/nest.png" alt="Nest">
+      <h3>N</h3>
+      <p>Nest</p>
+    </div>
+    <div class="letter-card" onclick="alert('O is for Orange!')">
+      <img src="https://i.postimg.cc/W46kL7M3/orange.png" alt="Orange">
+      <h3>O</h3>
+      <p>Orange</p>
+    </div>
+    <div class="letter-card" onclick="alert('P is for Penguin!')">
+      <img src="https://i.postimg.cc/fyZ0rJt6/penguin.png" alt="Penguin">
+      <h3>P</h3>
+      <p>Penguin</p>
+    </div>
+    <div class="letter-card" onclick="alert('Q is for Queen!')">
+      <img src="https://i.postimg.cc/qB7M1R7H/queen.png" alt="Queen">
+      <h3>Q</h3>
+      <p>Queen</p>
+    </div>
+    <div class="letter-card" onclick="alert('R is for Rainbow!')">
+      <img src="https://i.postimg.cc/d3Rp1XK3/rainbow.png" alt="Rainbow">
+      <h3>R</h3>
+      <p>Rainbow</p>
+    </div>
+    <div class="letter-card" onclick="alert('S is for Sun!')">
+      <img src="https://i.postimg.cc/V6X9KkYV/sun.png" alt="Sun">
+      <h3>S</h3>
+      <p>Sun</p>
+    </div>
+    <div class="letter-card" onclick="alert('T is for Tiger!')">
+      <img src="https://i.postimg.cc/vB0FQF3Z/tiger.png" alt="Tiger">
+      <h3>T</h3>
+      <p>Tiger</p>
+    </div>
+    <div class="letter-card" onclick="alert('U is for Umbrella!')">
+      <img src="https://i.postimg.cc/1Xr4LzZ3/umbrella.png" alt="Umbrella">
+      <h3>U</h3>
+      <p>Umbrella</p>
+    </div>
+    <div class="letter-card" onclick="alert('V is for Violin!')">
+      <img src="https://i.postimg.cc/MHVf0Lxv/violin.png" alt="Violin">
+      <h3>V</h3>
+      <p>Violin</p>
+    </div>
+    <div class="letter-card" onclick="alert('W is for Whale!')">
+      <img src="https://i.postimg.cc/KzGVrKnS/whale.png" alt="Whale">
+      <h3>W</h3>
+      <p>Whale</p>
+    </div>
+    <div class="letter-card" onclick="alert('X is for Xylophone!')">
+      <img src="https://i.postimg.cc/B6c8vJ9S/xylophone.png" alt="Xylophone">
+      <h3>X</h3>
+      <p>Xylophone</p>
+    </div>
+    <div class="letter-card" onclick="alert('Y is for Yacht!')">
+      <img src="https://i.postimg.cc/MpF4rTQ1/yacht.png" alt="Yacht">
+      <h3>Y</h3>
+      <p>Yacht</p>
+    </div>
+    <div class="letter-card" onclick="alert('Z is for Zebra!')">
+      <img src="https://i.postimg.cc/Tw0P5RjF/zebra.png" alt="Zebra">
+      <h3>Z</h3>
+      <p>Zebra</p>
+    </div>
+  </section>
+
+  <!-- Video Section -->
+  <section class="video-section">
+    <h2>Watch the Alphabet Video!</h2>
+    <iframe src="https://www.youtube.com/embed/kzB-2gb-AHg" title="Alphabet Learning Video" allowfullscreen></iframe>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <a href="index.html">Home</a>
+      <a href="kindergaten.html">Kindergarten</a>
+      <a href="learn primary.html">Primary</a>
+      <a href="learn secondary.html">Secondary</a>
+      <a href="learn tss.html">TSS</a>
+    </div>
+    <div class="footer-section">
+      <h3>Contact</h3>
+      <a href="#">Email: bedakwihangana1@gmail.com</a>
+      <a href="#">Phone: +250 793 215 197</a>
+      <a href="#">Address: Kigali, Rwanda</a>
+    </div>
+    <div class="footer-section">
+      <h3>Follow Us</h3>
+      <a href="Be Da">Facebook</a>
+      <a href="#">Twitter</a>
+      <a href="BedaCyberX">Instagram</a>
+    </div>
+  </div>
+  <p>© 2026 Beacon Education🖱. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

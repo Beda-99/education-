@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animal Sounds | Beacon Education🖱</title>
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;700&family=Plus+Jakarta+Sans:wght@800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --kid-pink: #ff7eb9;
+            --kid-blue: #4fc3f7;
+            --kid-yellow: #ffeb3b;
+            --kid-green: #8bc34a;
+            --dark: #0f172a;
+            --slate: #1e293b;
+        }
+
+        * { 
+            margin: 0;
+             padding: 0;
+              box-sizing: border-box;
+               font-family: 'Fredoka', sans-serif;
+             }
+        body {
+             background: #f0fdf4;
+              color: #333;
+               overflow-x: hidden;
+             }
+
+        /* --- PROFESSIONAL NAVIGATION --- */
+        nav {
+            background: var(--dark);
+            padding: 1.2rem 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky; top: 0; z-index: 1000;
+            border-bottom: 4px solid var(--kid-green);
+        }
+        .logo {
+             color: white; 
+             font-weight: 800;
+              font-size: 1.5rem; 
+              text-decoration: none;
+               font-family: 'Plus Jakarta Sans'; 
+            }
+        .logo span {
+             color: var(--kid-green);
+             }
+        .nav-links a {
+             color: #94a3b8;
+              text-decoration: none;
+               margin-left: 20px;
+                font-weight: 700;
+                 font-size: 0.9rem;
+                  transition: 0.3s;
+                 }
+        .nav-links a:hover {
+             color: white;
+             }
+        .logout-btn {
+             background: #ef4444;
+              color: white !important;
+               padding: 8px 15px; border-radius: 50px;
+             }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: white;
+            border-radius: 0 0 100px 100px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        .hero h1 {
+             font-size: 3.5rem; 
+             color: var(--kid-green);
+              margin-bottom: 10px;
+             }
+
+        /* --- RANDOM ASSESSMENT BOX --- */
+        .quiz-container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 60px;
+            border: 10px solid var(--kid-yellow);
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+        .q-tag {
+             color: #888;
+              text-transform: uppercase;
+               letter-spacing: 2px; 
+               font-weight: bold; 
+               margin-bottom: 10px; 
+               display: block;
+             }
+        .animal-display { 
+            font-size: 8rem;
+             margin: 20px 0;
+              display: block;
+               animation: bounce 2s infinite;
+             }
+        @keyframes bounce {
+             0%, 100% {
+                 transform: translateY(0); 
+                }
+                 50% { 
+                    transform: translateY(-20px);
+                 } }
+
+        .options-grid {
+             display: grid;
+              grid-template-columns: 1fr 1fr;
+               gap: 20px; margin-top: 30px;
+             }
+        .opt-btn {
+            padding: 25px;
+            font-size: 1.8rem;
+            border-radius: 30px;
+            border: 4px solid #f1f5f9;
+            background: white;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 8px 0 #e2e8f0;
+        }
+        .opt-btn:hover {
+             background: var(--kid-blue);
+              color: white;
+               transform: translateY(-3px);
+             }
+
+        /* --- RESULT SCREEN --- */
+        #result-screen {
+             display: none;
+              padding: 40px 0;
+             }
+        .score-circle { 
+            width: 150px;
+             height: 150px;
+              background: var(--kid-green); 
+            color: white;
+             border-radius: 50%; 
+             display: flex;
+              align-items: center; 
+            justify-content: center;
+             font-size: 3rem; 
+             margin: 20px auto; 
+             border: 8px solid #fff;
+        }
+
+        /* --- VIDEO SECTION (AT BOTTOM) --- */
+        .video-section {
+            max-width: 900px;
+            margin: 60px auto 100px;
+            padding: 20px;
+            background: var(--dark);
+            border-radius: 40px;
+            border: 10px solid var(--kid-green);
+        }
+        .video-section h2 {
+             color: white; 
+             text-align: center; 
+             margin-bottom: 20px;
+              font-size: 1.5rem; 
+            }
+        .video-wrapper {
+             position: relative;
+              padding-bottom: 56.25%; 
+              height: 0;
+               overflow: hidden;
+                border-radius: 20px;
+             }
+        .video-wrapper iframe {
+             position: absolute; 
+             top: 0; 
+             left: 0;
+              width: 100%;
+               height: 100%; 
+               border: none; 
+            }
+
+        /* --- PROFESSIONAL FOOTER --- */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 80px 10% 40px;
+            border-top: 10px solid var(--kid-green);
+        }
+        .footer-content { 
+            display: grid;
+             grid-template-columns: 2fr 1fr 1fr; 
+             gap: 50px;
+             }
+        .footer-logo {
+             font-size: 2rem;
+              font-family: 'Plus Jakarta Sans'; 
+              font-weight: 800;
+               margin-bottom: 20px; 
+            }
+        .footer-logo span { 
+            color: var(--kid-green); 
+        }
+        .footer-links h4 { 
+            color: var(--kid-green); 
+            margin-bottom: 20px;
+             text-transform: uppercase; 
+             font-size: 0.8rem;
+              letter-spacing: 1px;
+             }
+        .footer-links a { 
+            display: block; 
+            color: #94a3b8;
+             text-decoration: none;
+              margin-bottom: 12px;
+               transition: 0.3s;
+             }
+        .footer-links a:hover {
+             color: white;
+             }
+        .footer-bottom {
+             text-align: center; 
+             margin-top: 60px;
+              padding-top: 30px; 
+              border-top: 1px solid rgba(255,255,255,0.1); 
+              color: #475569; font-size: 0.9rem; 
+            }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">Becon Education<span>🖱</span></a>
+        <div class="nav-links">
+            <a href="1st of kindergaten.html">Map</a>
+            <a href="color.html">Colors</a>
+            <a href="start up.html" class="logout-btn" onclick="logout()">LOG OUT</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1 id="greet">Animal Sounds!</h1>
+        <p style="font-size: 1.5rem; color: #666;">Can you guess who is making that noise?</p>
+    </header>
+
+    <main class="quiz-container">
+        <div id="quiz-ui">
+            <span class="q-tag">Question <span id="q-count">1</span> of 5</span>
+            <h2 style="font-size: 2.2rem;">What sound does this animal make?</h2>
+            <span class="animal-display" id="emoji-target">🦁</span>
+            <div class="options-grid" id="options-box"></div>
+        </div>
+
+        <div id="result-screen">
+            <h2 style="font-size: 3rem;">Assessment Complete! 🐾</h2>
+            <div class="score-circle" id="score-val">0</div>
+            <p id="advice" style="font-size: 1.3rem; margin-bottom: 30px; line-height: 1.4;"></p>
+            <button onclick="location.reload()" class="opt-btn" style="background: var(--kid-green); color: white; width: 100%;">New Assessment 🔄</button>
+        </div>
+    </main>
+
+    <section class="video-section">
+        <h2>🎥 Watch & Learn Animal Sounds</h2>
+        <div class="video-wrapper">
+           <iframe width="560" height="315" src="https://www.youtube.com/embed/6ATbwi4kJ0w?si=J1Pf0YmgdH6JhkmW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div class="footer-logo">Beacon Education<span>🖱</span></div>
+                <p style="color: #94a3b8; line-height: 1.6;">The leading digital education platform for children in Rwanda. Making learning an adventure every day.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Learning Paths</h4>
+                <a href="abc-songs.html">ABC Songs</a>
+                <a href="colors.html">Color Magic</a>
+                <a href="animals.html">Animal Sounds</a>
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Support</a>
+                <a href="privacy policy.html">Privacy Policy</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Beacon Education MOVEMENT - Educational Digital Series. Kigali, Rwanda.
+        </div>
+    </footer>
+
+    <script>
+        // 1. DATA
+        const userName = localStorage.getItem("userName") || "Young Learner";
+        document.getElementById("greet").innerText = "Animal Magic, " + userName + "!";
+
+        const animals = [
+            { emoji: "🦁", sound: "Roar!" }, { emoji: "🐮", sound: "Moo!" },
+            { emoji: "🐶", sound: "Woof!" }, { emoji: "🐱", sound: "Meow!" },
+            { emoji: "🦆", sound: "Quack!" }, { emoji: "🐷", sound: "Oink!" },
+            { emoji: "🐑", sound: "Baa!" }, { emoji: "🐔", sound: "Cluck!" }
+        ];
+
+        let step = 0;
+        let score = 0;
+        let sessionQuestions = [];
+
+        // 2. LOGIC
+        function start() {
+            sessionQuestions = [...animals].sort(() => 0.5 - Math.random()).slice(0, 5);
+            load();
+        }
+
+        function load() {
+            const q = sessionQuestions[step];
+            document.getElementById("q-count").innerText = step + 1;
+            document.getElementById("emoji-target").innerText = q.emoji;
+            
+            const box = document.getElementById("options-box");
+            box.innerHTML = "";
+
+            let choices = [q.sound];
+            while(choices.length < 4) {
+                let r = animals[Math.floor(Math.random() * animals.length)].sound;
+                if(!choices.includes(r)) choices.push(r);
+            }
+            choices.sort(() => 0.5 - Math.random());
+
+            choices.forEach(c => {
+                const btn = document.createElement("button");
+                btn.className = "opt-btn";
+                btn.innerText = c;
+                btn.onclick = () => {
+                    if(c === q.sound) { score += 10; alert("CORRECT! 🌟"); }
+                    else { alert("OOPS! Try again! 🦒"); }
+                    step++;
+                    if(step < 5) load();
+                    else showResults();
+                };
+                box.appendChild(btn);
+            });
+        }
+
+        function showResults() {
+            document.getElementById("quiz-ui").style.display = "none";
+            document.getElementById("result-screen").style.display = "block";
+            document.getElementById("score-val").innerText = score;
+            const advice = document.getElementById("advice");
+            if(score === 50) advice.innerText = "AMAZING! You are a Jungle King. You know all the animal sounds!";
+            else if(score >= 30) advice.innerText = "Good job! Watch the video below to learn the sounds you missed.";
+            else advice.innerText = "Nice try! Let's watch the video together and practice!";
+        }
+
+        function logout() {
+            localStorage.removeItem("userName");
+            window.location.href = "index.html";
+        }
+
+        start();
+    </script>
+</body>
+</html>

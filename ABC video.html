@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABC Mega Cinema | Beacon Education🖱</title>
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;700&family=Plus+Jakarta+Sans:wght@800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --kid-pink: #ff7eb9;
+            --kid-blue: #4fc3f7;
+            --kid-yellow: #ffeb3b;
+            --kid-green: #8bc34a;
+            --kid-purple: #9c88ff;
+            --dark: #0f172a;
+        }
+
+        * { 
+            margin: 0;
+             padding: 0;
+              box-sizing: border-box;
+               font-family: 'Fredoka', sans-serif;
+             }
+        body { 
+            background: #fff9c4; 
+            color: #333;
+         }
+
+        /* --- PROFESSIONAL NAV --- */
+        nav {
+            background: var(--dark);
+            padding: 1.2rem 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky; top: 0; z-index: 1000;
+            border-bottom: 5px solid var(--kid-blue);
+        }
+        .logo { 
+            color: white;
+             font-weight: 800;
+              font-size: 1.5rem;
+               text-decoration: none;
+                font-family: 'Plus Jakarta Sans';
+             }
+        .logo span {
+             color: var(--kid-yellow); 
+            }
+        .nav-links a { 
+            color: #94a3b8; 
+            text-decoration: none;
+             margin-left: 20px;
+              font-weight: 700;
+               transition: 0.3s; 
+            }
+        .nav-links a:hover { 
+            color: white;
+         }
+        .logout-btn {
+             background: #ef4444; 
+             color: white !important; 
+             padding: 8px 18px;
+              border-radius: 50px; 
+              font-size: 0.8rem;
+             }
+
+        /* --- HEADER --- */
+        .cinema-header {
+            text-align: center;
+            padding: 60px 20px;
+            background: white;
+            border-radius: 0 0 100px 100px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        #user-greet {
+             font-size: 4rem; 
+             color: var(--kid-pink); 
+            }
+
+        /* --- MEGA VIDEO GRID (8 VIDEOS) --- */
+        .video-section {
+             padding: 50px 8%; 
+             text-align: center;
+             }
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        .vid-card {
+            background: white;
+            padding: 12px;
+            border-radius: 30px;
+            border: 8px solid var(--white);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+        .vid-card:hover {
+             transform: translateY(-10px);
+              border-color: var(--kid-blue);
+             }
+        iframe {
+             width: 100%;
+              border-radius: 20px;
+               aspect-ratio: 16/9;
+                border: none;
+             }
+
+        /* --- RANDOM ASSESSMENT --- */
+        .quiz-container {
+            max-width: 750px;
+            margin: 50px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 60px;
+            border: 12px solid var(--kid-green);
+            text-align: center;
+        }
+        .q-text {
+             font-size: 2.5rem;
+              margin-bottom: 30px;
+             }
+        .options-grid {
+             display: grid;
+              grid-template-columns: 1fr 1fr;
+               gap: 15px; 
+            }
+        .opt-btn {
+            padding: 25px;
+            font-size: 2.2rem;
+            border-radius: 30px;
+            border: 4px solid #f1f5f9;
+            background: white;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .opt-btn:hover {
+             background: var(--kid-yellow); 
+             transform: scale(1.05); 
+            }
+
+        /* --- RESULTS --- */
+        #result-screen {
+             display: none;
+             }
+        .final-score { 
+            font-size: 5rem;
+             color: var(--kid-pink); 
+             font-weight: 800;
+              margin: 20px 0;
+             }
+
+        /* --- BIG FOOTER --- */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 80px 10% 40px;
+            margin-top: 100px;
+            border-top: 10px solid var(--kid-pink);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">Beacon Education<span>🖱</span></a>
+        <div class="nav-links">
+            <a href="1st of kindergaten.html">Map</a>
+            <a href="index.html" class="logout-btn" onclick="logout()">LOG OUT</a>
+        </div>
+    </nav>
+
+    <header class="cinema-header">
+        <h1 id="user-greet">ABC Cinema!</h1>
+        <p style="font-size: 1.5rem; color: #777;">Watch 8 magic songs and play the quiz!</p>
+    </header>
+
+    <section class="video-section">
+        <div class="video-grid">
+            <div class="vid-card"><iframe src="https://www.youtube.com/embed/HQW0G9_M98U"></iframe></div>
+            <div class="vid-card"><iframe src="https://www.youtube.com/embed/75p-N9YKqNo"></iframe></div>
+            <div class="vid-card"><iframe src="https://www.youtube.com/embed/_Wp0vYvY6O0"></iframe></div>
+            <div class="vid-card"><iframe src="https://www.youtube.com/embed/T39m_O1U9fU"></iframe></div>
+            <div class="vid-card"><iframe src="https://www.youtube.com/embed/ezmsrB59mj8"></iframe></div>
+            <div class="vid-card"><iframe src="https://www.youtube.com/embed/vD98OvvDNEs"></iframe></div>
+            <div class="vid-card"><iframe src="https://www.youtube.com/embed/36n93jvjkDs"></iframe></div>
+            <div class="vid-card"><iframe src="https://www.youtube.com/embed/BELlZKpi1Zs"></iframe></div>
+        </div>
+    </section>
+
+    <main class="quiz-container">
+        <div id="quiz-ui">
+            <p style="color: #999;">Step <span id="step-count">1</span> of 5</p>
+            <h2 class="q-text" id="question-text">Loading...</h2>
+            <div class="options-grid" id="options-box"></div>
+        </div>
+
+        <div id="result-screen">
+            <h2 style="font-size: 3rem;">Quiz Over, <span id="user-name">Beda</span>!</h2>
+            <div class="final-score"><span id="points">0</span>/50</div>
+            <p id="feedback" style="font-size: 1.5rem; margin-bottom: 25px; line-height: 1.4;"></p>
+            <button onclick="location.reload()" class="opt-btn" style="background: var(--kid-pink); color: white; width: 100%;">New Random Quiz! 🔄</button>
+        </div>
+    </main>
+
+    <footer>
+        <div style="font-size: 4rem; margin-bottom: 20px;">🦒🐘🦓🐯</div>
+        <p>&copy; 2026 Beacon Education🖱 MOVEMENT. Made for Rwandan Superstars!</p>
+    </footer>
+
+    <script>
+        // 1. GREETING
+        const name = localStorage.getItem("userName") || "little hero!";
+        document.getElementById("user-greet").innerText = "Hello " + name + "!";
+        document.getElementById("user-name").innerText = name;
+
+        // 2. RANDOMIZED ENGINE
+        const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+        let currentStep = 0;
+        let score = 0;
+        let questions = [];
+
+        function buildQuiz() {
+            for(let i=0; i<5; i++) {
+                // Randomly pick between "What comes after" or "What letter is this"
+                const type = Math.random() > 0.5 ? 'after' : 'identify';
+                const randIdx = Math.floor(Math.random() * (alphabet.length - 2));
+                
+                if(type === 'after') {
+                    const letter = alphabet[randIdx];
+                    const answer = alphabet[randIdx + 1];
+                    questions.push({
+                        q: `What letter comes after "${letter}"?`,
+                        ans: answer,
+                        opts: generateOptions(answer)
+                    });
+                } else {
+                    const answer = alphabet[randIdx];
+                    questions.push({
+                        q: `Can you find the letter "${answer}"?`,
+                        ans: answer,
+                        opts: generateOptions(answer)
+                    });
+                }
+            }
+        }
+
+        function generateOptions(correct) {
+            let options = [correct];
+            while(options.length < 4) {
+                let r = alphabet[Math.floor(Math.random() * alphabet.length)];
+                if(!options.includes(r)) options.push(r);
+            }
+            return options.sort(() => Math.random() - 0.5);
+        }
+
+        function render() {
+            const q = questions[currentStep];
+            document.getElementById("step-count").innerText = currentStep + 1;
+            document.getElementById("question-text").innerText = q.q;
+            const box = document.getElementById("options-box");
+            box.innerHTML = "";
+            
+            q.opts.forEach(opt => {
+                const btn = document.createElement("button");
+                btn.className = "opt-btn";
+                btn.innerText = opt;
+                btn.onclick = () => {
+                    if(opt === q.ans) {
+                        score += 10;
+                        alert("YES! You got it! 🌟");
+                    } else {
+                        alert("Oops! Keep trying! 🦒");
+                    }
+                    currentStep++;
+                    if(currentStep < 5) render();
+                    else showFinal();
+                };
+                box.appendChild(btn);
+            });
+        }
+
+        function showFinal() {
+            document.getElementById("quiz-ui").style.display = "none";
+            document.getElementById("result-screen").style.display = "block";
+            document.getElementById("points").innerText = score;
+            const f = document.getElementById("feedback");
+            if(score === 50) f.innerText = "AMAZING! You are an ABC Master. You watched the videos very carefully!";
+            else if(score >= 30) f.innerText = "Good job! Try to watch Video #4 again to learn even more letters.";
+            else f.innerText = "Nice try! Watch some more videos and come back for a new quiz!";
+        }
+
+        function logout() {
+            localStorage.removeItem("userName");
+            window.location.href = "index.html";
+        }
+
+        buildQuiz();
+        render();
+    </script>
+</body>
+</html>

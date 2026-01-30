@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beda | Beacon Education Executive Profile</title>
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #050505;
+            --dark-grey: #121212;
+            --accent-blue: #2563eb;
+            --accent-gold: #fbbf24;
+            --accent-green: #10b981;
+            --text-silver: #a1a1aa;
+            --pure-white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { background-color: var(--black); color: var(--pure-white); line-height: 1.7; overflow-x: hidden; }
+
+        /* --- NAVIGATION --- */
+        nav {
+            background: rgba(5, 5, 5, 0.9);
+            backdrop-filter: blur(20px);
+            padding: 20px 8%;
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid #222;
+            position: sticky; top: 0; z-index: 9999;
+        }
+        .logo { font-weight: 800; font-size: 1.5rem; text-decoration: none; color: white; }
+        .logo span { color: var(--accent-blue); }
+
+        /* --- MAIN LAYOUT --- */
+        .master-wrapper {
+            max-width: 1300px;
+            margin: 60px auto;
+            padding: 0 5%;
+            display: grid;
+            grid-template-columns: 420px 1fr; /* Fixed Sidebar, Fluid Content */
+            gap: 80px;
+        }
+
+        /* --- PERSISTENT PHOTO SIDEBAR --- */
+        .sidebar-profile { position: sticky; top: 120px; height: fit-content; }
+        
+        .image-frame {
+            width: 100%; height: 500px;
+            border-radius: 30px;
+            overflow: hidden;
+            border: 1px solid #333;
+            background: #111;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+        }
+        .image-frame img { width: 100%; height: 100%; object-fit: cover; }
+
+        .status-tag {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--accent-green);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin-top: 25px;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        /* --- RICH CONTENT AREA --- */
+        .content-header h4 { color: var(--accent-blue); letter-spacing: 5px; text-transform: uppercase; font-size: 0.75rem; margin-bottom: 15px; }
+        .content-header h1 { font-size: 4rem; line-height: 1.1; margin-bottom: 30px; font-weight: 800; letter-spacing: -2px; }
+        
+        .content-section { margin-bottom: 80px; }
+        .section-title { font-size: 1.8rem; margin-bottom: 25px; border-left: 4px solid var(--accent-blue); padding-left: 20px; }
+        
+        /* THE JOURNEY CARDS */
+        .journey-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .journey-card {
+            background: var(--dark-grey);
+            padding: 35px;
+            border-radius: 25px;
+            border: 1px solid #222;
+            transition: 0.4s;
+        }
+        .journey-card:hover { border-color: var(--accent-blue); background: #161616; transform: translateY(-5px); }
+        .journey-card h3 { color: var(--accent-blue); margin-bottom: 12px; font-size: 1.3rem; }
+        .journey-card p { color: var(--text-silver); font-size: 0.95rem; }
+
+        /* --- ACTION BAR --- */
+        .contact-panel {
+            background: linear-gradient(145deg, #0f172a, #050505);
+            padding: 50px;
+            border-radius: 35px;
+            border: 1px solid #333;
+            text-align: center;
+        }
+        .btn-flex { display: flex; gap: 15px; justify-content: center; margin-top: 30px; flex-wrap: wrap; }
+        .btn {
+            padding: 16px 35px; border-radius: 14px; font-weight: 800; text-decoration: none; transition: 0.3s;
+        }
+        .btn-primary { background: var(--accent-blue); color: white; }
+        .btn-outline { border: 1px solid #444; color: white; }
+        .btn-outline:hover { background: white; color: black; }
+
+        /* --- MOBILE RESPONSIVENESS --- */
+        @media (max-width: 968px) {
+            .master-wrapper { grid-template-columns: 1fr; }
+            .sidebar-profile { position: relative; top: 0; }
+            .content-header h1 { font-size: 2.8rem; }
+        }
+
+        /* --- FOOTER --- */
+        footer { background: #000; padding: 80px 8% 40px; border-top: 1px solid #111; margin-top: 100px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; }
+        .footer-links a { display: block; color: #555; text-decoration: none; margin-bottom: 12px; font-size: 0.9rem; transition: 0.3s; }
+        .footer-links a:hover { color: var(--accent-blue); }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">Beacon Education<span>🖱</span></a>
+        <div class="nav-links">
+            <span style="color: #444; font-size: 0.8rem; font-weight: 700;">EST. 2024</span>
+        </div>
+    </nav>
+
+    <div class="master-wrapper">
+        <aside class="sidebar-profile">
+            <div class="image-frame">
+                <img src="beda.jpg" alt="Beda Profile">
+                </div>
+            <div class="status-tag">ACTIVE SCHOLAR 2026</div>
+            
+            <div style="margin-top: 30px;">
+                <h3 style="font-size: 1.1rem; margin-bottom: 10px;">Beda K.</h3>
+                <p style="color: var(--text-silver); font-size: 0.85rem;">Senior Lead Student & Brand Ambassador for the After Class Movement.</p>
+            </div>
+        </aside>
+
+        <main>
+            <section class="content-header">
+                <h4>Beyond the Classroom</h4>
+                <h1>Architecting a New Way of Learning.</h1>
+                <p style="font-size: 1.3rem; color: var(--text-silver); margin-bottom: 50px;">
+                    From the foundational steps of <strong>Kindergarten</strong> to the technical mastery of <strong>TSS</strong>, my journey represents the complete cycle of modern Rwandan education.
+                </p>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-title">The Complete Ecosystem</h2>
+                <div class="journey-grid">
+                    <div class="journey-card">
+                        <h3>Kindergarten</h3>
+                        <p>Where curiosity begins. We focus on phonics, motor skills, and the joy of discovery using interactive digital playbooks.</p>
+                    </div>
+                    <div class="journey-card">
+                        <h3>Primary Mastery</h3>
+                        <p>Covering P1 to P6 with deep curriculum alignment. Mastering Kinyarwanda literacy, English fluency, and Mathematics logic.</p>
+                    </div>
+                    <div class="journey-card">
+                        <h3>Secondary Level</h3>
+                        <p>Navigating the transition to complex sciences and humanities. A focus on national exam preparation and critical thinking.</p>
+                    </div>
+                    <div class="journey-card">
+                        <h3>TSS & TVET Excellence</h3>
+                        <p>The bridge to the professional world. Technical training in electronics, software, hospitality, and industrial mechanics.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-title">Why After Class?</h2>
+                <p style="color: var(--text-silver); margin-bottom: 20px;">
+                    Traditional schooling often stops at the bell. <strong>After Class🖱</strong> ensures that the learning environment is persistent. Whether a student is at home or on the move, they have access to the highest quality educational assets in Rwanda.
+                </p>
+                <div style="width: 100%; height: 300px; border-radius: 20px; overflow: hidden; border: 1px solid #222;">
+                    <img src="premium_photo-1720287601920-ee8c503af775.avif" alt="After Class App" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                </section>
+
+            <section class="contact-panel">
+                <h2 style="font-size: 2.2rem; margin-bottom: 10px;">The Connection Hub</h2>
+                <p style="color: var(--text-silver);">Available regardless of your platform. Connect via mobile or desktop.</p>
+                <div class="btn-flex">
+                    <a href="https://wa.me/250793215197" class="btn btn-primary">WhatsApp Me</a>
+                    <a href="mailto:bedakwihangana1@gmomail.com" class="btn btn-outline">Send Email</a>
+                    <a href="tel:+250793215197" class="btn btn-outline">Call Direct</a>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-info">
+                <div class="logo" style="color: white; margin-bottom: 20px;">Beacon Education<span>🖱</span></div>
+                <p style="color: #444; font-size: 0.9rem;">Building the bridge from Kindergarten to professional TSS careers. The standard for digital education in Rwanda.</p>
+            </div>
+            <div class="footer-links">
+                <h5 style="color: white; margin-bottom: 20px; font-size: 0.8rem; letter-spacing: 2px;">PATHWAYS</h5>
+                <a href="#">Early Learning</a>
+                <a href="learn primary.html">Primary Hub</a>
+                <a href="learn secondary.html">Secondary Portal</a>
+                <a href="learn tss.html">TSS Technical</a>
+            </div>
+            <div class="footer-links">
+                <h5 style="color: white; margin-bottom: 20px; font-size: 0.8rem; letter-spacing: 2px;">OFFICE</h5>
+                <a href="#">Kigali, Rwanda</a>
+                <a href="privacy policy.html">Privacy Policy</a>
+                <a href="contact.html">Contact Support</a>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 60px; color: #222; font-size: 0.75rem;">
+            &copy; 2026 Beacon Education MOVEMENT | REDEFINING THE SCHOLAR
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic World | Beacon Education🖱</title>
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;700&family=Plus+Jakarta+Sans:wght@800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --kid-pink: #ff7eb9;
+            --kid-blue: #4fc3f7;
+            --kid-yellow: #ffeb3b;
+            --kid-green: #8bc34a;
+            --kid-purple: #9c88ff;
+            --kid-orange: #ff9f43;
+            --dark: #0f172a;
+            --white: #ffffff; 
+        }
+
+        * {
+             margin: 0;
+              padding: 0;
+               box-sizing: border-box;
+                font-family: 'Fredoka', sans-serif; 
+            }
+        
+        body { 
+            background: #fff9c4; 
+            background-image: radial-gradient(#ffe082 2px, transparent 2px);
+            background-size: 30px 30px;
+        }
+
+        /* --- STANDARD NAVIGATION BAR --- */
+        nav {
+            background: var(--dark);
+            padding: 1.2rem 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 2000;
+            border-bottom: 5px solid var(--kid-blue);
+        }
+        .logo { 
+            color: white; 
+            font-weight: 800; 
+            font-size: 1.6rem;
+             text-decoration: none;
+              font-family: 'Plus Jakarta Sans';
+             }
+        .logo span {
+             color: var(--kid-yellow); 
+            }
+
+        .nav-links {
+             display: flex; 
+             align-items: center;
+              gap: 25px;
+             }
+        .nav-links a { 
+            color: #94a3b8;
+             text-decoration: none;
+              font-size: 0.9rem;
+               font-weight: 700; 
+               transition: 0.3s;
+             }
+        .nav-links a:hover {
+             color: white;
+             }
+
+        .logout-btn {
+            background: #ef4444;
+            color: white !important;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 0.8rem !important;
+            box-shadow: 0 4px 0 #b91c1c;
+        }
+
+        /* --- HEADER ZONE --- */
+        .header-zone {
+            text-align: center;
+            padding: 80px 20px;
+            background: var(--white);
+            border-radius: 0 0 100px 100px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        #welcome-name {
+             font-size: 5rem;
+              color: var(--kid-pink);
+               margin-bottom: 10px;
+             }
+        .subtitle {
+             font-size: 1.8rem;
+              color: var(--kid-blue);
+             }
+
+        /* --- 12 CARD GRID --- */
+        .lesson-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            padding: 60px 10%;
+        }
+
+        .lesson-card {
+            background: white;
+            border-radius: 40px;
+            padding: 35px 20px;
+            text-align: center;
+            text-decoration: none;
+            border: 10px solid white;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .lesson-card:hover {
+             transform: scale(1.1) rotate(2deg);
+              z-index: 5;
+             }
+        
+        .emoji {
+             font-size: 4.5rem; 
+             display: block;
+              margin-bottom: 15px;
+             }
+        .lesson-card h2 { 
+            color: #333;
+             font-size: 1.5rem;
+              margin-bottom: 5px;
+             }
+        .lesson-card p {
+             color: #888;
+              font-size: 0.9rem;
+             }
+
+        /* Color Variants */
+        .c-blue {
+             border-color: var(--kid-blue);
+             }
+        .c-green {
+             border-color: var(--kid-green);
+             }
+        .c-yellow {
+             border-color: var(--kid-yellow);
+             }
+        .c-purple {
+             border-color: var(--kid-purple); 
+            }
+        .c-orange { 
+            border-color: var(--kid-orange);
+         }
+        .c-pink {
+             border-color: var(--kid-pink); 
+            }
+
+        /* --- STANDARD FOOTER --- */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 100px 8% 40px;
+            margin-top: 100px;
+            border-top: 10px solid var(--kid-pink);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 50px;
+            padding-bottom: 50px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .footer-mascots { 
+            font-size: 5rem;
+             margin-bottom: 20px;
+             }
+        .footer-col h4 {
+             color: var(--kid-yellow); 
+             margin-bottom: 20px;
+              text-transform: uppercase;
+               font-size: 0.8rem;
+             }
+        .footer-col a { 
+            display: block; 
+            color: #94a3b8;
+             text-decoration: none;
+              margin-bottom: 12px; 
+              font-size: 0.9rem;
+             }
+        .footer-bottom {
+             text-align: center;
+              padding-top: 40px;
+               font-size: 0.8rem; 
+               color: #475569;
+             }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="create.html" class="logo">Beacon Education<span>🖱</span></a>
+        <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="programs.html" class="nav-link">Programs</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="resources.html" class="nav-link">Resources</a>
+        <a href="our vision.html" class="nav-link" >Our Vision</a>
+        <a href="1st of kindergaten.html" class="nav-link" style="color: blue;">kindgarten zone</a>
+        <a href="help center.html" class="nav-link">Help Center</a>
+        <a href="exam of kind.html" class="nav-link">Examination</a>
+            <a href="index.html" class="logout-btn" onclick="logout()">LOG OUT</a>
+        </div>
+    </nav>
+
+    <header class="header-zone">
+        <h1 id="welcome-name">Hello Superstar</h1>
+        <p class="subtitle">12 Magic lessons are waiting for you!</p>
+    </header>
+
+    <main class="lesson-container">
+        <a href="ABC video.html" class="lesson-card c-blue">
+            <span class="emoji">🍎</span>
+            <h2>ABC Song</h2>
+            <p>Sing the letters!</p>
+        </a>
+        <a href="number.html" class="lesson-card c-green">
+            <span class="emoji">🔢</span>
+            <h2>123 Count</h2>
+            <p>Count the stars!</p>
+        </a>
+        <a href="color.html" class="lesson-card c-yellow">
+            <span class="emoji">🌈</span>
+            <h2>Colors</h2>
+            <p>Paint the world!</p>
+        </a>
+        <a href="animal.html" class="lesson-card c-purple">
+            <span class="emoji">🦁</span>
+            <h2>Animals</h2>
+            <p>Hear them roar!</p>
+        </a>
+        <a href="shapes.html" class="lesson-card c-orange">
+            <span class="emoji">📐</span>
+            <h2>Shapes</h2>
+            <p>Circles & Squares!</p>
+        </a>
+        <a href="hygiene.html" class="lesson-card c-pink">
+            <span class="emoji">🧼</span>
+            <h2>Hygiene</h2>
+            <p>Wash your hands!</p>
+        </a>
+        <a href="plants.html" class="lesson-card c-green">
+            <span class="emoji">🌻</span>
+            <h2>Nature</h2>
+            <p>How plants grow!</p>
+        </a>
+        <a href="weather.html" class="lesson-card c-blue">
+            <span class="emoji">☀️</span>
+            <h2>Weather</h2>
+            <p>Sun and Rain!</p>
+        </a>
+        <a href="music.html" class="lesson-card c-purple">
+            <span class="emoji">🥁</span>
+            <h2>Music</h2>
+            <p>Play the drums!</p>
+        </a>
+        <a href="space.html" class="lesson-card c-orange">
+            <span class="emoji">🚀</span>
+            <h2>Space</h2>
+            <p>Fly to the moon!</p>
+        </a>
+        <a href="kindness.html" class="lesson-card c-pink">
+            <span class="emoji">🤝</span>
+            <h2>Manners</h2>
+            <p>Say thank you!</p>
+        </a>
+        <a href="body.html" class="lesson-card c-yellow">
+            <span class="emoji">👣</span>
+            <h2>My Body</h2>
+            <p>Head and toes!</p>
+        </a>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="footer-mascots">🐘🦒🦓</div>
+                <h2 style="margin-bottom: 15px;">Beacon Education<span>🖱</span></h2>
+                <p style="color: #94a3b8;">Fun digital learning for the future of Rwanda.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Learning</h4>
+                <a href="exam of kind.html">Exam</a>
+            </div>
+            <div class="footer-col">
+                <h4>Safety</h4>
+                <a href="privacy policy.html">Privacy Policy</a>
+                <a href="contact.html">Parent Help</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Beacon Education MOVEMENT.
+        </div>
+    </footer>
+
+    <script>
+        // NAME LOGIC
+        document.addEventListener("DOMContentLoaded", () => {
+            const userName = localStorage.getItem("userName") || "little hero!";
+            document.getElementById("welcome-name").innerText = "Hello " + userName + "! 🎈";
+        });
+
+        // LOGOUT LOGIC
+        function logout() {
+            if(confirm("Do you want to log out?")) {
+                localStorage.removeItem("userName");
+                window.location.href = "start up.html";
+            }
+        }
+    </script>
+</body>
+</html>
