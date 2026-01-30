@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P6 National English Exam | Official Portal</title>
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #1e3a8a; --danger: #b91c1c; --success: #059669; --bg: #f1f5f9; }
+        * { box-sizing: border-box; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); margin: 0; padding: 0; user-select: none; }
+
+        /* SECURITY ALERT SCREEN */
+        #cheatingOverlay {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: white; z-index: 10000; flex-direction: column; justify-content: center; 
+            align-items: center; text-align: center; border: 25px solid var(--danger);
+        }
+        .red-alert { color: var(--danger); font-size: 3.5rem; font-weight: 800; margin: 0; }
+
+        /* INSTRUCTIONS PAGE */
+        #instructionPage {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--bg); z-index: 9000; display: flex; justify-content: center; align-items: center;
+        }
+        .inst-card { background: white; padding: 40px; border-radius: 20px; max-width: 650px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 10px solid var(--primary); text-align: center; }
+
+        /* EXAM LAYOUT */
+        .exam-header { background: var(--primary); color: white; padding: 15px 5%; position: sticky; top: 0; display: flex; justify-content: space-between; align-items: center; z-index: 1000; }
+        .timer-box { background: rgba(255,255,255,0.2); padding: 10px 20px; border-radius: 8px; font-weight: 800; font-size: 1.2rem; border: 1px solid white; }
+        .container { max-width: 850px; margin: 30px auto; padding: 20px; }
+        .q-card { background: white; padding: 30px; border-radius: 15px; margin-bottom: 25px; border-left: 8px solid var(--primary); box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        
+        .btn { padding: 15px 30px; border: none; border-radius: 10px; font-weight: 800; cursor: pointer; font-size: 1rem; transition: 0.3s; }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-success { background: var(--success); color: white; width: 100%; margin-top: 20px; }
+        .btn-dark { background: #111827; color: white; margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <div id="instructionPage">
+        <div class="inst-card">
+            <h2 style="color: var(--primary);">English National Exam Instructions</h2>
+            <p>Please read the rules carefully before clicking Accept:</p>
+            <ul style="text-align: left; line-height: 1.8; margin-bottom: 25px; color: #334155;">
+                <li>Subject: <b>English Language & Literacy</b>.</li>
+                <li>Number of Questions: <b>20 Questions</b>.</li>
+                <li>Duration: <b>1 Hour 30 Minutes</b>.</li>
+                <li><b>Rule:</b> If you navigate away from this tab, the exam will be <b>TERMINATED</b> immediately.</li>
+            </ul>
+            <button class="btn btn-primary" onclick="startExam()">I ACCEPT & START EXAM</button>
+        </div>
+    </div>
+
+    <div id="cheatingOverlay">
+        <h1 class="red-alert">EXAM TERMINATED</h1>
+        <p style="font-size: 1.4rem; color: #475569; max-width: 600px; margin: 20px;">
+            Warning: Tab switching or window minimization is not allowed during National Examinations.
+        </p>
+        <button class="btn btn-dark" onclick="resetExam()">REQUEST RE-ASSESSMENT</button>
+        <p style="margin-top: 15px; color: #94a3b8; font-style: italic;">Invigilator must type the bypass code to continue.</p>
+    </div>
+
+    <div id="examBody" style="display: none;">
+        <div class="exam-header">
+            <div><b>NATIONAL PORTAL:</b> English P6</div>
+            <div class="timer-box" id="timer">01:30:00</div>
+        </div>
+
+        <div class="container">
+            <form id="quizForm">
+                <div id="questionsList"></div>
+                <button type="button" class="btn btn-success" onclick="finishExam()">SUBMIT MY ANSWERS</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="resultArea" class="container" style="display: none; text-align: center;">
+        <div class="q-card">
+            <h1>Official English Result</h1>
+            <div id="scoreBox" style="font-size: 4rem; color: var(--primary); font-weight: 800;">0%</div>
+            <p id="remarkText"></p>
+            <button class="btn btn-primary" onclick="location.reload()">Back to Portal Home</button>
+        </div>
+    </div>
+
+    <script>
+        // --- ENGLISH QUESTION DATABASE ---
+        const questions = [
+            { q: "Choose the correct pronoun: 'The teacher called Beda and ___ to the office.'", o: ["I", "me", "my", "mine"], a: 1 },
+            { q: "What is the plural of 'Child'?", o: ["Childs", "Childrens", "Children", "Childes"], a: 2 },
+            { q: "Complete: 'She ___ her homework every evening.'", o: ["do", "does", "doing", "done"], a: 1 },
+            { q: "What is the opposite (antonym) of the word 'Modern'?", o: ["New", "Fast", "Ancient", "Bright"], a: 2 },
+            { q: "Choose the correctly spelled word:", o: ["Recieve", "Receive", "Receve", "Riceive"], a: 1 },
+            { q: "Complete the proverb: 'A stitch in time saves ___.'", o: ["five", "money", "nine", "clothes"], a: 2 },
+            { q: "Identify the adjective: 'The big elephant ran quickly.'", o: ["Ran", "Elephant", "Big", "Quickly"], a: 2 },
+            { q: "Change to past tense: 'He goes to school.'", o: ["He went to school", "He gone to school", "He going to school", "He was go to school"], a: 0 },
+            { q: "Which word is a synonym for 'Happy'?", o: ["Sad", "Angry", "Joyful", "Brave"], a: 2 },
+            { q: "Choose the correct preposition: 'The book is ___ the table.'", o: ["at", "on", "in", "to"], a: 1 },
+            { q: "Identify the conjunction: 'I like tea, but I hate coffee.'", o: ["Like", "But", "Hate", "Tea"], a: 1 },
+            { q: "What is the female of 'Prince'?", o: ["King", "Queen", "Princess", "Duchess"], a: 2 },
+            { q: "Choose the correct article: 'I saw ___ eagle flying.'", o: ["a", "an", "the", "some"], a: 1 },
+            { q: "Select the odd one out:", o: ["Pencil", "Eraser", "Table", "Sharpener"], a: 2 },
+            { q: "Complete: 'If it rains, we ___ stay at home.'", o: ["shall", "would", "are", "have"], a: 0 },
+            { q: "The young one of a cow is called a ___.", o: ["Puppy", "Cub", "Calf", "Kitten"], a: 2 },
+            { q: "Rearrange: 'School / we / every / to / go / day.'", o: ["We every day go to school.", "To school we go every day.", "We go to school every day.", "Every day school we go to."], a: 2 },
+            { q: "Choose the silent letter in 'Knife':", o: ["k", "n", "i", "e"], a: 0 },
+            { q: "What is the comparative degree of 'Good'?", o: ["Gooder", "Best", "Better", "Well"], a: 2 },
+            { q: "Fill in: 'They ___ playing football now.'", o: ["is", "am", "are", "was"], a: 2 }
+        ];
+
+        let time = 5400; // 1 Hour 30 Minutes
+        let timerInterval;
+
+        function startExam() {
+            document.getElementById('instructionPage').style.display = 'none';
+            document.getElementById('examBody').style.display = 'block';
+            renderQuestions();
+            startTimer();
+        }
+
+        function renderQuestions() {
+            const list = document.getElementById('questionsList');
+            list.innerHTML = questions.map((item, i) => `
+                <div class="q-card">
+                    <h3>${i+1}. ${item.q}</h3>
+                    <div style="text-align: left;">
+                        ${item.o.map((opt, oi) => `
+                            <label style="display:block; margin: 12px 0; padding: 10px; border: 1px solid #ddd; border-radius: 8px; cursor:pointer;">
+                                <input type="radio" name="q${i}" value="${oi}"> ${opt}
+                            </label>
+                        `).join('')}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function startTimer() {
+            if (timerInterval) clearInterval(timerInterval);
+            timerInterval = setInterval(() => {
+                let h = Math.floor(time / 3600);
+                let m = Math.floor((time % 3600) / 60);
+                let s = time % 60;
+                document.getElementById('timer').innerText = 
+                    `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+                if(time <= 0) finishExam();
+                time--;
+            }, 1000);
+        }
+
+        // --- SECURITY LOGIC ---
+        window.onblur = function() {
+            document.getElementById('cheatingOverlay').style.display = 'flex';
+            document.getElementById('examBody').style.display = 'none';
+            clearInterval(timerInterval);
+        }
+
+        // --- FIXED RE-ASSESSMENT LOGIC ---
+        function resetExam() {
+            let p = prompt("INVIGILATOR AUTHORIZATION: Type 'RETRY' to unlock English Paper.");
+            if(p === "RETRY") {
+                document.getElementById('cheatingOverlay').style.display = 'none';
+                document.getElementById('examBody').style.display = 'block';
+                startTimer(); 
+                alert("Exam Unlocked. Stay on this tab!");
+            } else {
+                alert("Access Denied.");
+            }
+        }
+
+        function finishExam() {
+            clearInterval(timerInterval);
+            let score = 0;
+            const form = new FormData(document.getElementById('quizForm'));
+            questions.forEach((item, i) => {
+                if(form.get('q'+i) == item.a) score++;
+            });
+
+            const percent = Math.round((score / questions.length) * 100);
+            document.getElementById('examBody').style.display = 'none';
+            document.getElementById('resultArea').style.display = 'block';
+            document.getElementById('scoreBox').innerText = percent + "%";
+            document.getElementById('remarkText').innerText = `You correctly answered ${score} out of 20 English questions.`;
+        }
+    </script>
+</body>
+</html>
