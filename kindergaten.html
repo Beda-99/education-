@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="logo.png" type="image/x-icon">
+<title>Kindergarten | AFTER CLASS🖱</title>
+<style>
+  /* ===== Global Styles ===== */
+  * { 
+    box-sizing: border-box;
+     font-family: Arial, sans-serif;
+     }
+  body { margin:0; background: #f4f6f8;
+     color:#222; 
+     line-height:1.5;
+     }
+
+  /* Skip link */
+  .skip-link {
+     position: absolute;
+      top:-40px;
+       left:10px; 
+       background:#000;
+        color:#fff;
+         padding:8px;
+          z-index:100;
+         }
+  .skip-link:focus {
+     top:10px;
+     }
+
+  /* Header */
+  .header {
+     background:#0055a5;
+      color:white;
+       padding:1rem; 
+       display:flex;
+        justify-content:space-between; 
+        align-items:center;
+       }
+  .header ul { list-style:none; display:flex; gap:15px; margin:0; padding:0; }
+  .header ul li a { color:white; text-decoration:none; font-weight:bold; }
+  
+  /* Welcome Section */
+  .welcome-banner {
+    background: #ffce00;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  /* Layout */
+  .container { max-width: 1200px; margin: auto; padding: 20px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+  
+  .card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+  .card img { max-width: 100%; border-radius: 10px; }
+  .btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: #0055a5;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+
+  .quiz { background: #e3f2fd; padding: 40px; text-align: center; margin-top: 20px; }
+
+  /* Footer */
+  footer { background: #333; color: white; padding: 40px 20px; margin-top: 40px; }
+  .footer-content { display: flex; flex-wrap: wrap; justify-content: space-around; }
+  .footer-section { margin-bottom: 20px; }
+  .footer-section h3 { border-bottom: 2px solid #ffce00; padding-bottom: 10px; }
+  .footer-section a { color: #ccc; display: block; text-decoration: none; margin-bottom: 5px; }
+</style>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="header">
+    <div class="logo">
+      <img src="image & videos/logo.png" alt="Logo" width="50">
+      <span>AFTER CLASS</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="kindergarten.html">Kindergarten</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="welcome-banner">
+    <h1>Welcome to Kindergarten, <span id="userNameDisplay">Guest</span>!</h1>
+    <p>Let's learn and have fun together.</p>
+  </section>
+
+  <main id="main-content" class="container">
+    <div class="grid">
+      
+      <div class="card">
+        <img src="https://i.postimg.cc/8z0XyVnF/alphabet.png" alt="Alphabet">
+        <h3>Learn Alphabets</h3>
+        <p>Master your A-B-Cs with fun pictures.</p>
+        <a href="#" class="btn">Start Learning</a>
+      </div>
+
+      <div class="card">
+        <img src="https://i.postimg.cc/mD8zYVjB/numbers.png" alt="Numbers">
+        <h3>Counting Numbers</h3>
+        <p>Learn to count from 1 to 20 easily.</p>
+        <a href="#" class="btn">Start Learning</a>
+      </div>
+
+      <div class="card">
+        <img src="https://i.postimg.cc/7L4mGZ7h/music.png" alt="Songs">
+        <h3>Songs & Music</h3>
+        <p>Sing fun songs and learn rhythm and sounds.</p>
+        <a href="#" class="btn">Start Learning</a>
+      </div>
+
+      <div class="card">
+        <img src="https://i.postimg.cc/BQyc1gKv/activities.png" alt="Fun Activities">
+        <h3>Fun Activities</h3>
+        <p>Coloring, drawing, and interactive learning games.</p>
+        <a href="#" class="btn">Start Learning</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="quiz">
+    <h2>Mini Quiz</h2>
+    <p>Test what you have learned!</p>
+    <a href="#" class="btn">Take Quiz</a>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <a href="index.html">Home</a>
+      <a href="kindergarten.html">Kindergarten</a>
+      <a href="learn primary.html">Primary</a>
+      <a href="learn secondary.html">Secondary</a>
+      <a href="learn tss.html">TSS</a>
+    </div>
+    <div class="footer-section">
+      <h3>Contact</h3>
+      <a href="mailto:bedakwihangana1@gmail.com">Email Us</a>
+      <a href="#">Phone: +250 793 215 197</a>
+    </div>
+  </div>
+  <p style="text-align:center; margin-top:20px;">&copy; 2026 AFTER CLASS. All rights reserved.</p>
+</footer>
+
+<script>
+  // Iyi script isoma izina ryo muri Login/Signup maze ikaryerekana
+  window.onload = function() {
+    // Reba niba hari izina ryamaze kubikwa (kuri login cyangwa signup)
+    // Twiteze ko wabitse izina ukoresheje: localStorage.setItem("username", "izina_ryabo");
+    const storedName = localStorage.getItem("username");
+    
+    if (storedName) {
+      document.getElementById("userNameDisplay").innerText = storedName;
+    }
+  };
+</script>
+
+</body>
+</html>

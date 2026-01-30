@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beacon Education🖱 | Rwanda's National Digital Learning Platform</title>
+<link rel="icon" href="logo.png" type="image/x-icon">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+--bg:#0b0f1a;
+--surface:#161e2d;
+--surface-accent:#1e293b;
+--text:#ffffff;
+--text-muted:#94a3b8;
+--primary:#3b82f6;
+--secondary:#ff9100;
+--border:rgba(255,255,255,0.1);
+--shadow:0 25px 50px -12px rgba(0,0,0,0.5);
+}
+
+*{box-sizing:border-box;margin:0;padding:0;font-family:'Plus Jakarta Sans',sans-serif;}
+body{background:var(--bg);color:var(--text);line-height:1.6;}
+
+/* NAVBAR */
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:0.8rem 6%;
+background:var(--surface);
+border-bottom:1px solid var(--border);
+position:sticky;
+top:0;
+z-index:1000;
+
+}
+.logo-text{font-size:1.4rem;font-weight:800;color:var(--primary);}
+.nav-menu{display:flex;gap:2.5rem;list-style:none;}
+.nav-link{text-decoration:none;color:var(--text);font-weight:600;}
+.nav-link:hover{color:var(--primary);}
+
+/* HERO */
+.hero{
+display:grid;
+grid-template-columns:1.2fr 1fr;
+align-items:center;
+padding:5rem 6%;
+gap:4rem;
+}
+.hero-content h1{font-size:4.2rem;line-height:1.1;margin-bottom:2rem;}
+.hero-content p{font-size:1.3rem;color:var(--text-muted);margin-bottom:3rem;}
+.hero-img-box img{
+width:100%;
+height:650px;
+object-fit:cover;
+border-radius:50px;
+box-shadow:var(--shadow);
+border:4px solid var(--surface-accent);
+}
+
+.btn{
+background:orange;
+color:white;
+padding:1rem 2rem;
+border-radius:14px;
+text-decoration:none;
+font-weight:700;
+display:inline-block;
+border:none;
+text-align:center;
+}
+
+.btn-sec{background:var(--secondary);}
+
+/* PROGRAM GRID */
+.section{padding:8rem 6%;}
+.section-header{text-align:center;margin-bottom:5rem;}
+.section-header h2{font-size:3rem;margin-bottom:1rem;color:var(--primary);}
+.program-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:2rem;
+}
+.program-card{
+background:var(--surface);
+border-radius:32px;
+overflow:hidden;
+border:1px solid var(--border);
+transition:0.4s;
+}
+.program-card:hover{
+transform:translateY(-15px);
+border-color:var(--primary);
+box-shadow:var(--shadow);
+}
+.card-image img{width:100%;height:280px;object-fit:cover;}
+.card-body{padding:2rem;}
+.card-body h3{font-size:1.5rem;margin-bottom:1rem;}
+.card-body p{color:var(--text-muted);margin-bottom:1.5rem;}
+
+/* FOOTER (ORIGINAL RESTORED) */
+.footer{
+background:var(--surface);
+padding:5rem 6% 2rem;
+border-top:1px solid var(--border);
+}
+.footer-top{
+display:grid;
+grid-template-columns:2fr 1fr 1fr 1fr;
+gap:4rem;
+margin-bottom:4rem;
+}
+.footer-brand h2{color:var(--primary);margin-bottom:1.5rem;}
+.footer-brand p{color:var(--text-muted);max-width:300px;}
+.footer-links h4{margin-bottom:1.5rem;font-size:1.1rem;color:var(--secondary);}
+.footer-links ul{list-style:none;}
+.footer-links li{margin-bottom:0.8rem;}
+.footer-links a{color:var(--text-muted);text-decoration:none;}
+.footer-links a:hover{color:var(--text);}
+.footer-bottom{
+padding-top:2rem;
+border-top:1px solid var(--border);
+display:flex;
+justify-content:space-between;
+align-items:center;
+color:var(--text-muted);
+font-size:0.85rem;
+}
+
+/* MINI AI */
+#ai-bot{
+position:fixed;
+bottom:20px;
+right:20px;
+width:330px;
+background:var(--surface);
+border:1px solid var(--border);
+border-radius:18px;
+box-shadow:var(--shadow);
+overflow:hidden;
+z-index:9999;
+}
+#ai-header{
+background:var(--primary);
+padding:12px;
+font-weight:800;
+cursor:pointer;
+display:flex;
+justify-content:space-between;
+}
+#ai-body{display:flex;flex-direction:column;}
+#ai-bot.closed #ai-body{display:none;}
+#ai-messages{padding:12px;height:260px;overflow-y:auto;font-size:24px;}
+#ai-input-box{display:flex;border-top:1px solid var(--border);}
+#ai-input{flex:1;padding:10px;border:none;background:transparent;color:white;font-size: 30px;}
+#ai-input-box button{padding:10px 16px;background:orange;border:none;cursor:pointer;font-weight:700;}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+<a href="#" class="logo-group" style="text-decoration: none;"><span class="logo-text">Beacon Education🖱</span></a>
+<ul class="nav-menu">
+<li><a href="#" class="nav-link">Home</a></li>
+<li><a href="about.html" class="nav-link">About</a></li>
+<li><a href="programs.html" class="nav-link">Programs</a></li>
+<li><a href="resources.html" class="nav-link">Resources</a></li>
+<li><a href="contact.html" class="nav-link">Contact</a></li>
+</ul>
+<a href="create.html" class="btn">Log In</a>
+</nav>
+
+<section class="hero">
+<div class="hero-content">
+<h1>The Standard of Learning in Rwanda.</h1>
+<p>Interactive curriculum-aligned content for every stage of a student's journey.</p>
+<div style="display:flex;gap:1rem;">
+<a href="exprole.html" class="btn">Explore Schools</a>
+<a href="teacher.html" class="btn btn-sec">Join as Teacher</a>
+</div>
+</div>
+<div class="hero-img-box">
+<img src="tss3.jpg">
+</div>
+</section>
+
+<section class="section">
+<div class="section-header">
+<h2>Our Academic Programs</h2>
+<p style="color:var(--text-muted);">Comprehensive digital education for all levels.</p>
+</div>
+
+<div class="program-grid">
+<div class="program-card">
+<div class="card-image"><img src="ooo.jpg"></div>
+<div class="card-body">
+<h3>Kindergarten</h3>
+<p>Foundation of numeracy, literacy, and creative play for ages 3–6.</p>
+<a href="learn kindergarten.html" class="btn">Learn More</a>
+</div>
+</div>
+
+<div class="program-card">
+<div class="card-image"><img src="primary2.jpg"></div>
+<div class="card-body">
+<h3>Primary School</h3>
+<p>Core subjects mapping the P1–P6 national curriculum.</p>
+<a href="learn primary.html" class="btn">Learn More</a>
+</div>
+</div>
+
+<div class="program-card">
+<div class="card-image"><img src="secondary2.jpg"></div>
+<div class="card-body">
+<h3>Secondary School</h3>
+<p>O-Level & A-Level STEM and humanities.</p>
+<a href="learn secondary.html" class="btn">Learn More</a>
+</div>
+</div>
+
+<div class="program-card">
+<div class="card-image"><img src="tss4.jpg"></div>
+<div class="card-body">
+<h3>TSS / TVET</h3>
+<p>Career-ready technical and vocational skills.</p>
+<a href="learn tss.html" class="btn">Learn More</a>
+</div>
+</div>
+</div>
+</section>
+
+<footer class="footer">
+<div class="footer-top">
+<div class="footer-brand">
+<h2>Beacon Education🖱</h2>
+<p>Empowering Rwanda's future through world-class digital education.</p>
+</div>
+
+<div class="footer-links">
+<h4>Quick Links</h4>
+<ul>
+<li><a href="about.html">About Us</a></li>
+<li><a href="our vision.html">Our Vision</a></li>
+<li><a href="curriclum.html">Curriculum</a></li>
+<li><a href="help center.html">Help Center</a></li>
+</ul>
+</div>
+
+<div class="footer-links">
+<h4>Support</h4>
+<ul>
+<li><a href="mailto:bedakwihangana1@gmail.com">Email</a></li>
+<li><a href="phone support.html">Phone Support</a></li>
+<li><a href="privacy policy.html">Privacy Policy</a></li>
+<li><a href="terms of use.html">Terms of Use</a></li>
+</ul>
+</div>
+
+<div class="footer-links">
+<h4>Socials</h4>
+<ul>
+<li><a href="bedaCyberX">Instagram</a></li>
+<li><a href="Beda-developer">Twitter/X</a></li>
+<li><a href="#">LinkedIn</a></li>
+<li><a href="Be Da">Facebook</a></li>
+</ul>
+</div>
+</div>
+
+<div class="footer-bottom">
+<p>© 2026 Beacon Education🖱 Platform. Kigali, Rwanda.</p>
+<p>Built by Mr. Vue (Beda).</p>
+</div>
+</footer>
+
+<!-- MINI AI -->
+<div id="ai-bot" class="closed">
+<div id="ai-header" onclick="toggleAI()">
+<span>Beacon AI 🤖</span>
+<span id="ai-toggle">▲</span>
+</div>
+
+<div id="ai-body">
+<div id="ai-messages"></div>
+<div id="ai-input-box">
+<input id="ai-input" placeholder="Ask me anything..." onkeydown="if(event.key==='Enter') sendAI()">
+<button onclick="sendAI()">Send</button>
+</div>
+</div>
+</div>
+
+<script>
+const memoryKey="beacon_ai_memory";
+
+function toggleAI(){
+const bot=document.getElementById("ai-bot");
+const icon=document.getElementById("ai-toggle");
+bot.classList.toggle("closed");
+icon.innerText=bot.classList.contains("closed")?"▲":"▼";
+}
+
+function loadMemory(){
+const messages=document.getElementById("ai-messages");
+const data=localStorage.getItem(memoryKey);
+if(data)messages.innerHTML=data;
+}
+loadMemory();
+
+function saveMemory(){
+localStorage.setItem(memoryKey,document.getElementById("ai-messages").innerHTML);
+}
+
+function sendAI(){
+const input=document.getElementById("ai-input");
+const messages=document.getElementById("ai-messages");
+if(input.value.trim()==="")return;
+
+messages.innerHTML+=`<div><b>You:</b> ${input.value}</div>`;
+
+let reply=aiBrain(input.value.toLowerCase());
+
+setTimeout(()=>{
+messages.innerHTML+=`<div><b>Beacon AI:</b> ${reply}</div>`;
+messages.scrollTop=messages.scrollHeight;
+saveMemory();
+},300);
+
+input.value="";
+saveMemory();
+}
+
+function aiBrain(text){
+if(text.includes("who created")||text.includes("creator")||text.includes("who made"))
+return "Beacon Education and this AI were created by Mr. Vue, also known as Beda.";
+
+if(text.includes("where Books")||text.includes("books")||text.includes("I want the book "))
+return "Beacon Education the books is free go in the library or resources on navigation and you can play it as offline . IT IS PROHIBITED TO SELL OUR BOOKS IT IS GOVERNMENT PROPERTY";
+
+
+if(text.includes("where I can get book")||text.includes("ihave problem tothe books")||text.includes("your library where"))
+return "Beacon Education books of is free go in the resource page and download all books you want.";
+
+if(text.includes("account")||text.includes("how to create new account")||text.includes("account"))
+return "Beacon Education go in that button in the corner.";
+
+if(text.includes("dou you know selleman")||text.includes("dou you know selleman")||text.includes("dou you know selleman"))
+return "yeah hi is only friend mrvue or beda he have from s1 to s4.";
+
+
+if(text.includes("who are you"))
+return "I am Beacon AI — your smart learning assistant.";
+
+if(text.includes("what is beacon"))
+return "Beacon Education is Rwanda's national digital learning platform.";
+
+if(text.includes("hello")||text.includes("hi"))
+return "Hello 👋 I am Beacon AI. How can I help you today?";
+
+return "I'm learning 🤖 Ask me about Beacon, education, or the creator.";
+}
+</script>
+
+</body>
+</html>

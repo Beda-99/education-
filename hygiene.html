@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hygiene Heroes | Beacon Education🖱</title>
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;700&family=Plus+Jakarta+Sans:wght@800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --kid-pink: #ff7eb9;
+            --kid-blue: #4fc3f7;
+            --kid-yellow: #ffeb3b;
+            --kid-green: #8bc34a;
+            --kid-aqua: #00cec9;
+            --dark: #0f172a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Fredoka', sans-serif; }
+        body { background: #e0fbff; color: #333; overflow-x: hidden; }
+
+        /* --- PROFESSIONAL NAVIGATION --- */
+        nav {
+            background: var(--dark);
+            padding: 1.2rem 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky; top: 0; z-index: 1000;
+            border-bottom: 5px solid var(--kid-aqua);
+        }
+        .logo { color: white; font-weight: 800; font-size: 1.5rem; text-decoration: none; font-family: 'Plus Jakarta Sans'; }
+        .logo span { color: var(--kid-aqua); }
+        .nav-links a { color: #94a3b8; text-decoration: none; margin-left: 20px; font-weight: 700; font-size: 0.9rem; transition: 0.3s; }
+        .nav-links a:hover { color: white; }
+        .logout-btn { background: #ef4444; color: white !important; padding: 8px 18px; border-radius: 50px; }
+
+        /* --- HERO HEADER --- */
+        .header {
+            text-align: center;
+            padding: 60px 20px;
+            background: white;
+            border-radius: 0 0 100px 100px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        #greet-text { font-size: 3.5rem; color: var(--kid-aqua); }
+
+        /* --- RANDOM ASSESSMENT BOX --- */
+        .quiz-card {
+            max-width: 750px;
+            margin: 50px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 60px;
+            border: 10px solid var(--kid-aqua);
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+        
+        .habit-emoji { font-size: 8rem; margin: 20px 0; display: block; filter: drop-shadow(0 5px 15px rgba(0,128,128,0.2)); }
+
+        .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px; }
+        .opt-btn {
+            padding: 22px;
+            font-size: 1.4rem;
+            border-radius: 25px;
+            border: 4px solid #f1f5f9;
+            background: white;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 8px 0 #e2e8f0;
+        }
+        .opt-btn:hover { background: var(--kid-yellow); transform: translateY(-3px); }
+
+        /* --- VIDEO SECTION --- */
+        .video-container {
+            max-width: 850px;
+            margin: 60px auto 100px;
+            padding: 20px;
+            background: var(--dark);
+            border-radius: 40px;
+            border: 10px solid var(--kid-aqua);
+        }
+        .video-container h2 { color: white; text-align: center; margin-bottom: 20px; }
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 20px; }
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+
+        /* --- RESULTS --- */
+        #result-screen { display: none; }
+        .big-points { font-size: 5rem; color: var(--kid-aqua); font-weight: 800; margin: 20px 0; }
+
+        /* --- PROFESSIONAL FOOTER --- */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 80px 10% 40px;
+            border-top: 10px solid var(--kid-aqua);
+        }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 50px; }
+        .footer-logo { font-size: 2rem; font-weight: 800; margin-bottom: 15px; }
+        .footer-logo span { color: var(--kid-aqua); }
+        .footer-links a { display: block; color: #94a3b8; text-decoration: none; margin-bottom: 12px; }
+        .footer-bottom { text-align: center; margin-top: 50px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); color: #475569; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">Beacon Education<span>🖱</span></a>
+        <div class="nav-links">
+            <a href="1st of kindergaten.html">Map</a>
+            <a href="animal.html">Animals</a>
+            <a href="shapes.html">Shapes</a>
+            <a href="index.html" class="logout-btn" onclick="logout()">LOG OUT</a>
+        </div>
+    </nav>
+
+    <header class="header">
+        <h1 id="greet-text">Hygiene Heroes!</h1>
+        <p style="font-size: 1.5rem; color: #777;">Beda, let's learn how to stay clean and strong!</p>
+    </header>
+
+    <main class="quiz-card">
+        <div id="quiz-ui">
+            <p style="color: #888;">Health Check <span id="q-num">1</span> of 5</p>
+            <h2 id="q-text">What should we do with this?</h2>
+            <div id="habit-display" class="habit-emoji">🧼</div>
+            <div class="options-grid" id="options-box"></div>
+        </div>
+
+        <div id="result-screen">
+            <h2 style="font-size: 3rem;">Hygiene Master! 🧼</h2>
+            <div class="big-points"><span id="points">0</span>/50</div>
+            <p id="advice" style="font-size: 1.3rem; margin-bottom: 25px;"></p>
+            <button onclick="location.reload()" class="opt-btn" style="background: var(--kid-aqua); color: white; width: 100%;">Play Again 🔄</button>
+        </div>
+    </main>
+
+    <section class="video-container">
+        <h2>🎥 Handwashing & Hygiene Song</h2>
+        <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/dDHJW4r3elE" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-links">
+                <div class="footer-logo">Beacon Education<span>🖱</span></div>
+                <p style="color: #94a3b8;">Nurturing healthy habits and bright minds across Rwanda.</p>
+            </div>
+            <div class="footer-links">
+                <h4 style="color: var(--kid-aqua); margin-bottom: 20px;">Health & Fun</h4>
+                <a href="color.html">Colors</a>
+                <a href="animal.html">Animals</a>
+                <a href="hygiene.html">Hygiene</a>
+            </div>
+            <div class="footer-links">
+                <h4 style="color: var(--kid-aqua); margin-bottom: 20px;">Support</h4>
+                <a href="help center.html">Help Center</a>
+                <a href="index.html" onclick="logout()">Logout</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Beacon Education MOVEMENT. Kigali, Rwanda.
+        </div>
+    </footer>
+
+    <script>
+        const name = localStorage.getItem("userName") || "Beda";
+        document.getElementById("greet-text").innerText = "Hygiene Hero, " + name + "!";
+
+        const habits = [
+            { emoji: "🧼", question: "What do we use to wash our hands?", answer: "Soap", options: ["Soap", "Juice", "Sand", "Toys"] },
+            { emoji: "🪥", question: "What do we use to clean our teeth?", answer: "Toothbrush", options: ["Toothbrush", "Spoon", "Pencil", "Comb"] },
+            { emoji: "🚿", question: "What do we do to stay clean?", answer: "Take a Bath", options: ["Take a Bath", "Play in Dirt", "Sleep in Shoes", "Eat Candy"] },
+            { emoji: "🍎", question: "What is a healthy snack?", answer: "Apple", options: ["Apple", "Cookie", "Soda", "Chips"] },
+            { emoji: "💦", question: "Wash hands after using the...?", answer: "Toilet", options: ["Toilet", "TV", "Bed", "Bookshelf"] },
+            { emoji: "🧴", question: "We use this for soft skin...", answer: "Lotion", options: ["Lotion", "Glue", "Paint", "Water"] }
+        ];
+
+        let step = 0;
+        let score = 0;
+        let sessionData = [];
+
+        function init() {
+            sessionData = [...habits].sort(() => 0.5 - Math.random()).slice(0, 5);
+            load();
+        }
+
+        function load() {
+            const q = sessionData[step];
+            document.getElementById("q-num").innerText = step + 1;
+            document.getElementById("q-text").innerText = q.question;
+            document.getElementById("habit-display").innerText = q.emoji;
+            
+            const optBox = document.getElementById("options-box");
+            optBox.innerHTML = "";
+
+            q.options.sort(() => 0.5 - Math.random()).forEach(c => {
+                const btn = document.createElement("button");
+                btn.className = "opt-btn";
+                btn.innerText = c;
+                btn.onclick = () => {
+                    if(c === q.answer) { score += 10; alert("SO CLEAN! 🌟"); }
+                    else { alert("Oops! Think about being healthy! 🧼"); }
+                    step++;
+                    if(step < 5) load();
+                    else finish();
+                };
+                optBox.appendChild(btn);
+            });
+        }
+
+        function finish() {
+            document.getElementById("quiz-ui").style.display = "none";
+            document.getElementById("result-screen").style.display = "block";
+            document.getElementById("points").innerText = score;
+            const advice = document.getElementById("advice");
+            if(score === 50) advice.innerText = "You are a Super Hygiene Hero! Stay healthy!";
+            else advice.innerText = "Good try! Watch the video below to learn how to keep germs away!";
+        }
+
+        function logout() {
+            localStorage.removeItem("userName");
+            window.location.href = "index.html";
+        }
+
+        init();
+    </script>
+</body>
+</html>

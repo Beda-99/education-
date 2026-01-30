@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Center | Beacon Education🖱</title>
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-soft: #eff6ff;
+            --dark: #0f172a;
+            --slate: #64748b;
+            --accent: #fbbf24;
+            --border: #f1f5f9;
+        }
+
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: 'Plus Jakarta Sans', sans-serif;
+         }
+        body { 
+            background: #ffffff; 
+            color: var(--dark);
+             line-height: 1.6; 
+            }
+
+        /* --- NAVIGATION --- */
+        nav {
+            background: var(--dark);
+             padding: 1rem 8%;
+            display: flex;
+             justify-content: space-between;
+              align-items: center;
+            position: sticky; 
+            top: 0;
+             z-index: 1000;
+        }
+        .logo { 
+            color: white;
+             font-weight: 800;
+              font-size: 1.4rem;
+               text-decoration: none;
+             }
+        .logo span { 
+            color: var(--accent);
+         }
+        .nav-links a { 
+            color: #94a3b8;
+             text-decoration: none;
+              margin-left: 25px;
+               font-size: 0.85rem; 
+               font-weight: 600;
+                transition: 0.3s; 
+            }
+        .nav-links a:hover {
+             color: white;
+             }
+
+        /* --- SEARCH HERO --- */
+        .help-hero {
+            background: var(--dark);
+             color: white;
+            padding: 100px 8% 120px; 
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        }
+        .help-hero h1 { 
+            font-size: 3rem;
+             font-weight: 800;
+              margin-bottom: 30px;
+               letter-spacing: -1.5px; 
+            }
+        
+        .search-container {
+             max-width: 600px;
+              margin: 0 auto;
+               position: relative; 
+            }
+        .search-container input {
+            width: 100%;
+             padding: 22px 35px;
+              border-radius: 50px;
+            border: none;
+             font-size: 1.1rem;
+              outline: none;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            color: var(--dark);
+        }
+
+        /* --- SUPPORT CARDS --- */
+        .support-grid {
+            max-width: 1200px;
+             margin: -50px auto 80px;
+              padding: 0 5%;
+            display: grid;
+             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+             gap: 25px;
+        }
+        .support-card {
+            background: white;
+             padding: 40px;
+              border-radius: 24px;
+            text-align: center;
+             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+             transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .support-card:hover { 
+            transform: translateY(-12px);
+             border-color: var(--primary); 
+            }
+        .support-card h3 {
+             margin-bottom: 12px; 
+             font-weight: 800; 
+             color: var(--dark); 
+            }
+        .support-card p {
+             color: var(--slate); 
+             font-size: 0.9rem;
+              margin-bottom: 20px;
+             }
+
+        /* --- FAQ SECTION --- */
+        .faq-section { 
+            max-width: 850px;
+             margin: 0 auto 100px; 
+             padding: 0 5%; 
+            }
+        .faq-section h2 { 
+            text-align: center; 
+            margin-bottom: 50px;
+             font-weight: 800; 
+             font-size: 2.2rem;
+             }
+        
+        .faq-item {
+            background: #f8fafc;
+             margin-bottom: 15px;
+              border-radius: 18px;
+            overflow: hidden; 
+            border: 1px solid var(--border);
+             transition: 0.3s;
+        }
+        .faq-question {
+            padding: 24px 30px;
+             cursor: pointer; 
+             font-weight: 700;
+            display: flex;
+             justify-content: space-between;
+              align-items: center;
+        }
+        .faq-question span {
+             font-size: 1.5rem;
+              color: var(--primary); 
+              transition: 0.3s; 
+            }
+        .faq-answer {
+            padding: 0 30px;
+             max-height: 0;
+              overflow: hidden;
+            transition: max-height 0.4s ease;
+             color: var(--slate); 
+             font-size: 1rem;
+        }
+        .faq-answer p { 
+            padding-bottom: 24px;
+             line-height: 1.7;
+             }
+
+        /* --- FOOTER --- */
+        footer {
+             background: var(--dark);
+              color: white; 
+              padding: 80px 8% 40px; 
+            }
+        .footer-grid {
+             display: grid; 
+             grid-template-columns: 2fr 1fr 1fr;
+              gap: 50px; 
+              border-bottom: 1px solid rgba(255,255,255,0.05); 
+              padding-bottom: 40px; 
+            }
+        .footer-bottom { 
+            padding-top: 30px;
+             text-align: center;
+              font-size: 0.8rem; 
+              color: #475569;
+             }
+             /*this is the login button*/
+        .btn {
+            background: orange;
+             color: white;
+              padding: 1rem 2rem;
+            border-radius: 14px;
+             text-decoration: none;
+              font-weight: 700;
+            display: inline-block;
+             border: none; 
+             text-align: center;
+              width: 100%;
+        }
+        .btn-sec {
+             background: var(--secondary);
+             }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">Beacon Education<span></span>🖱</a>
+        <div class="nav-links">
+           <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="programs.html" class="nav-link">Programs</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="resources.html" class="nav-link">Resources</a>
+        <a href="our vision.html" class="nav-link" >Our Vision</a>
+        <a href="programs.html" class="nav-link">Curriculum</a>
+        <a href="help center.html" class="nav-link"  style="color: blue;">Help Center</a>
+        <a href="create.html" class="btn" style="padding: 0.6rem 1.2rem; font-size: 0.8rem; width: auto;">Log In</a>
+        </div>
+    </nav>
+
+    <header class="help-hero">
+        <h1>How can we assist you?</h1>
+        <div class="search-container">
+            <input type="text" id="helpSearch" placeholder="Type your question (e.g. 'TSS', 'PDF', 'Mobile')..." onkeyup="liveSearch()">
+        </div>
+    </header>
+
+    <main class="support-grid">
+        <div class="support-card">
+            <h3>Download Center</h3>
+            <p>Learn how to save PDF resources for offline study on your laptop or phone.</p>
+        </div>
+        <div class="support-card">
+            <h3>Technical Support</h3>
+            <p>Accessing TVET manuals or software installation guides for TSS students.</p>
+        </div>
+        <div class="support-card">
+            <h3>Curriculum FAQ</h3>
+            <p>Understanding the Competence-Based Curriculum (CBC) alignment.</p>
+        </div>
+    </main>
+
+    <section class="faq-section">
+        <h2>General FAQ</h2>
+        
+        <div class="faq-container" id="faqContainer">
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">Are these resources updated for the CBC curriculum? <span>+</span></div>
+                <div class="faq-answer"><p>Yes. All textbooks and teaching materials are strictly aligned with the Rwanda Basic Education Board (REB) Competence-Based Curriculum (CBC).</p></div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">Can I use Becon Education🖱 on my mobile phone? <span>+</span></div>
+                <div class="faq-answer"><p>Absolutely. Our platform is optimized for mobile viewing. You can read books and download lab manuals directly to your smartphone.</p></div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">Is there a cost for TVET/TSS manuals? <span>+</span></div>
+                <div class="faq-answer"><p>No. Our mission is free accessibility. Technical manuals for Software Development, Masonry, Electricity, and others are provided at zero cost.</p></div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">How do I contribute my own study notes? <span>+</span></div>
+                <div class="faq-answer"><p>We love community input! Visit the Contact page and select "Resource Contribution" to share your materials with our administrative team for review.</p></div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">Why won't my PDF download? <span>+</span></div>
+                <div class="faq-answer"><p>Ensure you have a stable internet connection. If the issue persists, clear your browser cache or try using the 'Save Link As' option by right-clicking the download button.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <h2 style="margin-bottom: 20px;">Beacon Education<span></span>🖱</h2>
+                <p style="color: #94a3b8; font-size: 0.9rem;">The leading digital repository for Rwandan education.</p>
+            </div>
+            <div>
+              <h4 style="color: var(--accent); margin-bottom: 20px; font-size: 0.75rem;">NAVIGATE</h4>
+                <a href="index.html" style="color: #94a3b8; text-decoration: none; display: block; margin-bottom: 10px;">Home</a>
+                <a href="our vision.html" style="color: #94a3b8; text-decoration: none; display: block;">Our Vision </a>
+                 <a href="help center.html" style="color: #94a3b8; text-decoration: none; display: block;">Help Center</a>
+                  <a href="resources.html" style="color: #94a3b8; text-decoration: none; display: block;">Resources</a>
+                   <a href="about.html" style="color: #94a3b8; text-decoration: none; display: block;">About</a>
+                    <a href="curriclum.html" style="color: #94a3b8; text-decoration: none; display: block;">curriclum</a>
+            </div>
+            <div>
+                <h4 style="color: var(--accent); margin-bottom: 20px; font-size: 0.75rem;">SUPPORT</h4>
+                <a href="contact.html" style="color: #94a3b8; text-decoration: none; display: block; margin-bottom: 10px; font-size: 0.85rem;">Contact Admin</a>
+                <a href="our vision.html" style="color: #94a3b8; text-decoration: none; display: block; font-size: 0.85rem;">Our Vision</a>
+            </div>
+        </div>
+        <div class="footer-bottom">&copy; 2026 Beacon Education MOVEMENT. ALL RIGHTS RESERVED.</div>
+    </footer>
+
+    <script>
+        // FIXED LIVE SEARCH
+        function liveSearch() {
+            let input = document.getElementById('helpSearch').value.toLowerCase();
+            let cards = document.querySelectorAll('.support-card');
+            let faqs = document.querySelectorAll('.faq-item');
+
+            // Search Cards
+            cards.forEach(card => {
+                let title = card.querySelector('h3').innerText.toLowerCase();
+                let desc = card.querySelector('p').innerText.toLowerCase();
+                if (title.includes(input) || desc.includes(input)) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+
+            // Search FAQs
+            faqs.forEach(faq => {
+                let text = faq.innerText.toLowerCase();
+                if (text.includes(input)) {
+                    faq.style.display = "block";
+                } else {
+                    faq.style.display = "none";
+                }
+            });
+        }
+
+        // ACCORDION LOGIC
+        function toggleFaq(element) {
+            const answer = element.nextElementSibling;
+            const icon = element.querySelector('span');
+            
+            // Close others
+            document.querySelectorAll('.faq-answer').forEach(el => {
+                if(el !== answer) el.style.maxHeight = null;
+            });
+            document.querySelectorAll('.faq-question span').forEach(el => {
+                if(el !== icon) el.innerText = "+";
+            });
+
+            // Toggle current
+            if (answer.style.maxHeight) {
+                answer.style.maxHeight = null;
+                icon.innerText = "+";
+            } else {
+                answer.style.maxHeight = answer.scrollHeight + "px";
+                icon.innerText = "-";
+            }
+        }
+    </script>
+</body>
+</html>

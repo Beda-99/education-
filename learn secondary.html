@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <title>Secondary Academic Portal | Beacon Education🖱</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0f172a;
+            --blue-accent: #2563eb;
+            --gold: #fbbf24;
+            --text-light: #f8fafc;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+        
+        body { 
+            /* PROFESSIONAL BACKGROUND: High-quality academic library/study setting */
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), 
+                        url('https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&q=80&w=1920');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            color: var(--text-light);
+        }
+
+        /* --- NAVIGATION --- */
+        .navbar {
+            background: rgba(15, 23, 42, 0.9);
+            padding: 1rem 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            position: sticky; top: 0; z-index: 1000;
+        }
+        .nav-links { list-style: none; display: flex; gap: 30px; }
+        .nav-links a { color: white; text-decoration: none; font-weight: 500; font-size: 0.9rem; transition: 0.3s; }
+        .nav-links a:hover { color: var(--gold); }
+        .btn-back { border: 1px solid var(--gold); padding: 8px 20px; border-radius: 5px; color: var(--gold) !important; }
+
+        /* --- HERO SECTION --- */
+        .hero { padding: 100px 8% 60px; }
+        .hero h1 { font-size: 3.5rem; font-weight: 700; margin-bottom: 15px; letter-spacing: -1px; }
+        .hero span { color: var(--gold); }
+        .user-tag { background: var(--blue-accent); color: white; padding: 5px 15px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; }
+
+        /* --- SUBJECT CONTENT --- */
+        .content-container { max-width: 1200px; margin: 0 auto; padding: 0 8% 100px; }
+        
+        .subject-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            transition: 0.3s;
+        }
+        .subject-card:hover { border-color: var(--gold); background: rgba(255, 255, 255, 0.08); }
+
+        .subject-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        
+        .subject-header { font-size: 1.5rem; font-weight: 700; margin-bottom: 20px; color: var(--gold); border-bottom: 2px solid var(--gold); display: inline-block; padding-bottom: 5px; }
+        
+        .topic-list { list-style: none; }
+        .topic-list li { margin-bottom: 12px; font-size: 1rem; color: #cbd5e1; display: flex; align-items: flex-start; gap: 10px; }
+        .topic-list li::before { content: "▸"; color: var(--gold); }
+
+        /* --- FOOTER --- */
+        footer { background: #020617; padding: 80px 8% 40px; border-top: 2px solid var(--gold); }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 60px; margin-bottom: 40px; }
+        .footer-grid h4 { color: var(--gold); margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; }
+        .footer-grid p, .footer-grid a { color: #94a3b8; text-decoration: none; margin-bottom: 15px; display: block; font-size: 0.9rem; }
+        .footer-bottom { text-align: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; font-size: 0.8rem; color: #475569; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div style="font-size: 1.5rem; font-weight: 700;">Beacon Education <a href="index.html" style="text-decoration: none;color: whitesmoke;"> 🖱</a></div>
+        <ul class="nav-links">
+           
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">Curriculum</a></li>
+            <li><a href="resources.html">Resources</a></li>
+             <li><a href="contact.html" >Contact</a></li>
+         <li><a href="resources.html">Resources</a></li>
+        <li><a href="our vision.html">Our Vision</a></li>
+        <li><a href="programs.html">Curriculum</a></li>
+        <li><a href="help center.html">Help Center</a></li>
+        <a href="create.html" class="btn" style="padding: 0.6rem 1.2rem; font-size: 0.8rem; width: auto;">Log In</a>
+
+            
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <span class="user-tag" id="dd-level">Secondary Education</span>
+        <h1 id="dd-name">Scholar Hub</h1>
+        <p style="font-size: 1.2rem; color: #94a3b8;">Accessing advanced learning modules for high school excellence.</p>
+    </header>
+
+    <main class="content-container">
+        <div class="subject-grid">
+            
+            <div class="subject-card">
+                <div class="subject-header">STEM Advanced</div>
+                <ul class="topic-list">
+                    <li><b>Calculus & Analysis:</b> Mastery of limits, derivatives, and integral functions.</li>
+                    <li><b>Thermodynamics:</b> Heat transfer and thermal properties of matter.</li>
+                    <li><b>Quantum Basics:</b> Introduction to modern physics and atomic structure.</li>
+                    <li><b>Algorithm Design:</b> Data structures and logic for computer science.</li>
+                </ul>
+            </div>
+
+            <div class="subject-card">
+                <div class="subject-header">Humanities & Social</div>
+                <ul class="topic-list">
+                    <li><b>Contemporary History:</b> Rwanda's journey and global geopolitical shifts.</li>
+                    <li><b>Microeconomics:</b> Understanding markets, supply, and demand.</li>
+                    <li><b>Entrepreneurship:</b> Business planning and financial literacy for youth.</li>
+                    <li><b>Global Geography:</b> Sustainable development and climate systems.</li>
+                </ul>
+            </div>
+
+            <div class="subject-card">
+                <div class="subject-header">Linguistics & Arts</div>
+                <ul class="topic-list">
+                    <li><b>Advanced English:</b> Critical analysis of literature and essay writing.</li>
+                    <li><b>Professional Kinyarwanda:</b> Cultural preservation and advanced grammar.</li>
+                    <li><b>Global Languages:</b> French and Swahili for regional communication.</li>
+                    <li><b>Creative Arts:</b> Media studies and digital design fundamentals.</li>
+                </ul>
+            </div>
+
+        </div>
+    </main>
+
+    
+
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <h4>Beacon Education🖱</h4>
+                <p>Developing the intellectual capital of Rwandan youth through high-tier digital learning platforms.</p>
+            </div>
+            <div>
+                 <h4 class="h1">NAVIGATE</h4><br>
+            <a href="our vision.html">Our Vision</a>
+            <a href="teacher.html">Teacher Portal</a>
+            <a href="resources.html">Resources</a>
+             <a href="help center.html">Help center</a>
+              <a href="about.html">about</a>
+               <a href="curriclum.html">curriculum</a>
+                <a href="create.html">Login</a>
+                
+            <a href="privacy policy.html">Privacy Policy</a>
+            <a href="terms of use.html">Terms of Service</a>
+            </div>
+            <div>
+                <h4>Support</h4>
+                <p>📍 Kigali HQ, Rwanda</p>
+                <p>📞 +250 793 215 197</p>
+                <p>📧 bedakwihangana1@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2026 Beacon Education🖱. Standardized Academic Resource.
+        </div>
+    </footer>
+
+    <script>
+        window.onload = function() {
+            // Recovering User Dynamic Data
+            const name = sessionStorage.getItem("activeUser") || "";
+            const level = sessionStorage.getItem("activeLevel") || "";
+
+            document.getElementById("dd-name").innerText = "Welcome, " + u
+            document.getElementById("dd-level").innerText = level.toUpperCase() + " DIVISION";
+        }
+    </script>
+</body>
+</html>

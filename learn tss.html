@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <title>TSS/TVET Industrial Portal | Beacon Education🖱</title>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --industrial-orange: #f97316;
+            --steel-gray: #334155;
+            --dark-core: #0f172a;
+            --neon-blue: #38bdf8;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Chakra Petch', sans-serif; }
+        
+        body { 
+            /* BACKGROUND PHOTO: Professional Polytechnic/Engineering workshop setting */
+            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), 
+                        url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=1920');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            color: #f1f5f9;
+        }
+
+        /* --- INDUSTRIAL NAVIGATION --- */
+        .navbar {
+            background: rgba(15, 23, 42, 0.95);
+            padding: 1.2rem 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--industrial-orange);
+            backdrop-filter: blur(10px);
+            position: sticky; top: 0; z-index: 1000;
+        }
+        .nav-links { list-style: none; display: flex; gap: 25px; }
+        .nav-links a { color: white; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
+        .nav-links a:hover { color: var(--industrial-orange); }
+        .btn-work { border: 2px solid var(--industrial-orange); padding: 8px 18px; border-radius: 4px; color: var(--industrial-orange) !important; }
+
+        /* --- ENGINEERING HERO --- */
+        .hero { padding: 100px 8% 40px; }
+        .hero h1 { font-size: 3.5rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
+        .hero span { color: var(--industrial-orange); }
+        .tech-id { 
+            display: inline-block; background: var(--industrial-orange); color: white; 
+            padding: 5px 15px; font-weight: bold; border-radius: 2px; margin-bottom: 15px;
+        }
+
+        /* --- TECHNICAL MODULES --- */
+        .grid-container {
+            max-width: 1300px; margin: 0 auto; padding: 20px 8% 100px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px;
+        }
+
+        .tech-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 5px solid var(--industrial-orange);
+            padding: 40px;
+            border-radius: 0 20px 20px 0;
+            transition: 0.4s;
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            border-right: 1px solid rgba(255,255,255,0.1);
+        }
+        .tech-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateX(10px);
+        }
+        .tech-card h3 { 
+            font-size: 1.6rem; margin-bottom: 20px; color: var(--neon-blue);
+            display: flex; align-items: center; gap: 10px;
+        }
+
+        .skill-list { list-style: none; }
+        .skill-list li { 
+            margin-bottom: 15px; font-size: 1rem; color: #94a3b8; 
+            display: flex; align-items: center; gap: 12px;
+        }
+        .skill-list li::before { content: "⚙️"; font-size: 0.8rem; }
+
+        /* --- PROFESSIONAL FOOTER --- */
+        footer { background: #020617; padding: 80px 8% 40px; border-top: 1px solid var(--industrial-orange); }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 50px; }
+        .footer-grid h4 { color: var(--industrial-orange); margin-bottom: 20px; text-transform: uppercase; }
+        .footer-grid p, .footer-grid a { color: #64748b; text-decoration: none; margin-bottom: 12px; display: block; font-size: 0.9rem; }
+        .bottom-bar { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); color: #475569; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div style="font-size: 1.5rem; font-weight: 800; color: var(--industrial-orange);">AFTER CLASS<a href="index.html" style="text-decoration: none;color: whitesmoke;"> 🖱</a></div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="btn-work">⬅ WORKSHOP EXIT</a></li>
+            <li><a href="start up.html">DASHBOARD</a></li>
+            <li><a href="#">CERTIFICATIONS</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <div class="tech-id" id="dd-level">TVET DIVISION</div>
+        <h1 id="dd-name">Technician Portal</h1>
+        <p style="font-size: 1.2rem; color: var(--neon-blue); max-width: 700px;">Advanced technical training and vocational excellence modules for future engineers.</p>
+    </header>
+
+    <main class="grid-container">
+        <div class="tech-card">
+            <h3>Mechanical & Civil</h3>
+            <ul class="skill-list">
+                <li><b>Construction Tech:</b> Advanced structural integrity and materials.</li>
+                <li><b>Mechanical Systems:</b> Engine diagnostics and hydraulic logic.</li>
+                <li><b>CAD Design:</b> 2D and 3D architectural blueprinting.</li>
+                <li><b>Welding & Fabrication:</b> Industrial safety and precision joining.</li>
+            </ul>
+        </div>
+
+        <div class="tech-card">
+            <h3>Energy & Electronics</h3>
+            <ul class="skill-list">
+                <li><b>Electrical Wiring:</b> Domestic and industrial power systems.</li>
+                <li><b>Renewable Energy:</b> Solar panel installation and maintenance.</li>
+                <li><b>Electronics:</b> Circuit board assembly and troubleshooting.</li>
+                <li><b>Automation:</b> Basic PLC programming and robotics.</li>
+            </ul>
+        </div>
+
+        <div class="tech-card">
+            <h3>ICT & Digital Arts</h3>
+            <ul class="skill-list">
+                <li><b>Networking:</b> LAN/WAN configuration and security.</li>
+                <li><b>Software Dev:</b> Professional coding for industrial apps.</li>
+                <li><b>Graphic Design:</b> Digital branding and multimedia production.</li>
+                <li><b>Culinary Arts:</b> Professional hospitality and food science.</li>
+            </ul>
+        </div>
+    </main>
+
+    
+
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <h4>Beacon Education🖱 TVET</h4>
+                <p>Equipping the next generation of Rwandan technicians with global-standard digital resources.</p>
+            </div>
+            <div>
+                <h4>Workshop Links</h4>
+                <a href="#">Practical Labs</a>
+                <a href="#">Industry Partners</a>
+                <a href="#">Job Portal</a>
+            </div>
+            <div>
+                <h4>Tech Support</h4>
+                <p>📍 Polytechnic Hub, Kigali</p>
+                <p>📞 +250 793 215 197</p>
+                <p>📧 bedakwihangana1@gmail.com</p>
+            </div>
+        </div>
+        <div class="bottom-bar">
+            © 2026 AFTER CLASS🖱. Vocational Excellence Division. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script>
+        window.onload = function() {
+            // Dynamic Data (DD) Recovery
+            const name = sessionStorage.getItem("activeUser") || ;
+            const level = sessionStorage.getItem("activeLevel") || "TSS";
+
+            document.getElementById("dd-name").innerText = name + " | Project Manager";
+            document.getElementById("dd-level").innerText = level.toUpperCase() + " TECHNICAL DIVISION";
+        }
+    </script>
+</body>
+</html>
