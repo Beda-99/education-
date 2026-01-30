@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <title>Phone Support | Beacon Education🖱</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --whatsapp: #25d366;
+            --dark: #0f172a;
+            --slate: #64748b;
+            --accent: #fbbf24;
+            --border: #f1f5f9;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { background: #fafafa; color: var(--dark); line-height: 1.6; }
+
+        /* --- NAVIGATION --- */
+        nav {
+            background: var(--dark); padding: 1rem 8%;
+            display: flex; justify-content: space-between; align-items: center;
+            position: sticky; top: 0; z-index: 1000;
+        }
+        .logo { color: white; font-weight: 800; font-size: 1.4rem; text-decoration: none; }
+        .logo span { color: var(--accent); }
+        .nav-links a { color: #94a3b8; text-decoration: none; margin-left: 25px; font-size: 0.85rem; font-weight: 600; transition: 0.3s; }
+        .nav-links a:hover { color: white; }
+
+        /* --- HERO SECTION --- */
+        .phone-hero {
+            background: var(--dark);
+            color: white;
+            padding: 80px 8% 120px;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+        .phone-hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 20px; letter-spacing: -1.5px; }
+        .phone-hero p { color: #94a3b8; font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+
+        /* --- CONTACT CARDS --- */
+        .contact-grid {
+            max-width: 1100px;
+            margin: -60px auto 80px;
+            padding: 0 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .support-card {
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+            transition: 0.3s ease;
+        }
+        .support-card:hover { transform: translateY(-10px); border-color: var(--primary); }
+
+        .icon-circle {
+            width: 70px; height: 70px;
+            margin: 0 auto 25px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem;
+        }
+        .call-icon { background: var(--primary); color: white; }
+        .wa-icon { background: var(--whatsapp); color: white; }
+
+        .support-card h2 { font-size: 1.5rem; margin-bottom: 10px; font-weight: 800; }
+        .support-card p { color: var(--slate); font-size: 0.95rem; margin-bottom: 30px; }
+
+        .call-btn {
+            display: inline-block;
+            width: 100%;
+            padding: 16px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+        .primary-btn { background: var(--primary); color: white; }
+        .wa-btn { background: var(--whatsapp); color: white; }
+        .call-btn:hover { opacity: 0.9; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+
+        /* --- AVAILABILITY SECTION --- */
+        .availability {
+            max-width: 800px;
+            margin: 0 auto 100px;
+            background: white;
+            padding: 40px;
+            border-radius: 24px;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+        .availability h3 { font-weight: 800; margin-bottom: 15px; }
+        .time-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: #f0f7ff;
+            color: var(--primary);
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 0.85rem;
+            margin-top: 10px;
+        }
+
+        /* --- FOOTER --- */
+        footer { background: var(--dark); color: white; padding: 80px 8% 40px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 50px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 40px; }
+        .footer-bottom { padding-top: 30px; text-align: center; font-size: 0.8rem; color: #475569; }
+
+        @media (max-width: 768px) {
+            .phone-hero h1 { font-size: 2.2rem; }
+            .contact-grid { grid-template-columns: 1fr; }
+        }
+        .btn {
+            background: var(--primary);
+             color: white;
+              padding: 1rem 2rem;
+            border-radius: 14px;
+             text-decoration: none;
+              font-weight: 700;
+            display: inline-block;
+             border: none; 
+             text-align: center;
+              width: 100%;
+        }
+        .btn-sec {
+             background: var(--secondary);
+             }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">Beacon Education<span></span>🖱</a>
+        <div class="nav-links">
+               <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="programs.html" class="nav-link">Programs</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="resources.html" class="nav-link">Resources</a>
+        <a href="our vision.html" class="nav-link" >Our Vision</a>
+        <a href="curriclum.html" class="nav-link">Curriculum</a>
+        <a href="help center.html" class="nav-link">Help Center</a>
+          <a href="phone support.html" class="nav-link"  style="color: blue;">phone support</a>
+        <a href="create.html" class="btn" style="padding: 0.6rem 1.2rem; font-size: 0.8rem; width: auto;">Log In</a>
+        </div>
+    </nav>
+
+    <header class="phone-hero">
+        <h1>Direct Support</h1>
+        <p>Speak directly with our academic administrators and technical specialists in Kigali.</p>
+    </header>
+
+    <main class="contact-grid">
+        <div class="support-card">
+            <div class="icon-circle call-icon">📞</div>
+            <h2>Voice Support</h2>
+            <p>Direct line for urgent curriculum inquiries and platform access issues.</p>
+            <a href="tel:+250793215197" class="call-btn primary-btn">Call +250 793 215 197</a>
+        </div>
+
+        <div class="support-card">
+            <div class="icon-circle wa-icon">💬</div>
+            <h2>WhatsApp Hub</h2>
+            <p>Fastest way to get book links or quick technical guidance via chat.</p>
+            <a href="https://wa.me/250793215197" class="call-btn wa-btn">Message on WhatsApp</a>
+        </div>
+    </main>
+
+    <section class="availability">
+        <h3>Support Operating Hours</h3>
+        <p>Our team is available to assist you during the following windows (CAT):</p>
+        <div class="time-badge">Mon — Fri: 08:00 AM - 06:00 PM</div>
+        <div class="time-badge" style="background: #fff8eb; color: #b45309;">Sat: 09:00 AM - 01:00 PM</div>
+        <p style="margin-top: 20px; font-size: 0.85rem; color: var(--slate);">*Sunday: Automated WhatsApp Support Only</p>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <h2 style="margin-bottom: 20px;">Beacon Education<span></span>🖱</h2>
+                <p style="color: #94a3b8; font-size: 0.9rem;">Bridging the gap in Rwandan digital education.</p>
+            </div>
+            <div>
+                <h4 style="color: var(--accent); margin-bottom: 20px; font-size: 0.75rem;">RESOURCES</h4>
+                <a href="resources.html" style="color: #94a3b8; text-decoration: none; display: block; margin-bottom: 10px; font-size: 0.85rem;">Library</a>
+                <a href="curriclum.html" style="color: #94a3b8; text-decoration: none; display: block; font-size: 0.85rem;">Curriculum</a>
+            </div>
+            <div>
+                <h4 style="color: var(--accent); margin-bottom: 20px; font-size: 0.75rem;">CONNECT</h4>
+                <a href="contact.html" style="color: #94a3b8; text-decoration: none; display: block; margin-bottom: 10px; font-size: 0.85rem;">Email Support</a>
+                <a href="help center.html" style="color: #94a3b8; text-decoration: none; display: block; font-size: 0.85rem;">FAQ</a>
+            </div>
+        </div>
+        <div class="footer-bottom">&copy; 2026 Beacon Education MOVEMENT. Kigali, Rwanda.</div>
+    </footer>
+
+</body>
+</html>

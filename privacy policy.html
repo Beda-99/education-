@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <title>Privacy Policy | Beacon Education🖱</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --dark: #0f172a;
+            --accent: #fbbf24;
+            --slate: #64748b;
+            --glass: rgba(15, 23, 42, 0.9);
+            --border: #f1f5f9;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { background: #fafafa; color: var(--dark); line-height: 1.8; }
+
+        /* --- NAVIGATION (Master Style) --- */
+        nav {
+            background: var(--dark);
+            padding: 1rem 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 2000;
+        }
+        .logo { color: white; font-weight: 800; font-size: 1.4rem; text-decoration: none; }
+        .logo span { color: var(--accent); }
+        .nav-links a { color: #94a3b8; text-decoration: none; margin-left: 25px; font-size: 0.85rem; font-weight: 600; transition: 0.3s; }
+        .nav-links a:hover { color: white; }
+
+        /* --- PRIVACY HEADER --- */
+        .policy-header {
+            background: var(--dark);
+            color: white;
+            padding: 80px 8% 100px;
+            text-align: center;
+        }
+        .policy-header h1 { font-size: 3rem; font-weight: 800; margin-bottom: 15px; }
+        .policy-header p { color: #94a3b8; font-size: 1rem; }
+
+        /* --- DOCUMENT LAYOUT --- */
+        .policy-container {
+            max-width: 1100px;
+            margin: -40px auto 100px;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 50px;
+            padding: 0 5%;
+        }
+
+        .policy-sidebar {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        }
+        .policy-sidebar h4 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; color: var(--slate); }
+        .policy-nav-link {
+            display: block;
+            color: var(--slate);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            transition: 0.3s;
+            font-weight: 500;
+        }
+        .policy-nav-link:hover { color: var(--primary); padding-left: 5px; }
+
+        .policy-content {
+            background: white;
+            padding: 60px;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: 1px solid var(--border);
+        }
+
+        .policy-content h2 { font-size: 1.8rem; margin: 40px 0 20px; font-weight: 800; color: var(--dark); }
+        .policy-content h2:first-child { margin-top: 0; }
+        .policy-content p { margin-bottom: 20px; color: var(--slate); }
+        .policy-content ul { margin-bottom: 25px; padding-left: 20px; color: var(--slate); }
+        .policy-content li { margin-bottom: 10px; }
+
+        /* --- FOOTER (Master Style) --- */
+        footer { background: var(--dark); color: white; padding: 80px 8% 40px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 50px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 40px; }
+        .footer-bottom { padding-top: 30px; text-align: center; font-size: 0.8rem; color: #475569; }
+
+        @media (max-width: 900px) {
+            .policy-container { grid-template-columns: 1fr; }
+            .policy-sidebar { display: none; }
+            .policy-content { padding: 30px; }
+        }
+         .btn {
+            background: orange;
+             color: white;
+              padding: 1rem 2rem;
+            border-radius: 14px;
+             text-decoration: none;
+              font-weight: 700;
+            display: inline-block;
+             border: none; 
+             text-align: center;
+              width: 100%;
+        }
+        .btn-sec {
+             background: var(--secondary);
+             }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">Beacon Education<span>🖱</span></a>
+        <div class="nav-links">
+             <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="programs.html" class="nav-link">Programs</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="resources.html" class="nav-link">Resources</a>
+        <a href="our vision.html" class="nav-link" >Our Vision</a>
+        <a href="programs.html" class="nav-link" >Curriculum</a>
+        <a href="help center.html" class="nav-link" >Help Center</a>
+         <a href="privacy policy.html" class="nav-link" style="color: blue;">Plivacy policy</a>
+        <a href="create.html" class="btn" style="padding: 0.6rem 1.2rem; font-size: 0.8rem; width: auto;">Log In</a>
+        </div>
+    </nav>
+
+    <header class="policy-header">
+        <h1>Privacy Policy</h1>
+        <p>Last Updated: December 2025</p>
+    </header>
+
+    <main class="policy-container">
+        
+        <aside class="policy-sidebar">
+            <h4>Quick Jump</h4>
+            <a href="#introduction" class="policy-nav-link">1. Introduction</a>
+            <a href="#data-collection" class="policy-nav-link">2. Data Collection</a>
+            <a href="#data-usage" class="policy-nav-link">3. How We Use Data</a>
+            <a href="#security" class="policy-nav-link">4. Data Security</a>
+            <a href="#contact" class="policy-nav-link">5. Contact Us</a>
+        </aside>
+
+        <section class="policy-content">
+            <h2 id="introduction">1. Introduction</h2>
+            <p>Welcome to Beacon Education🖱. We are committed to protecting your personal information and your right to privacy. This policy applies to all students, teachers, and parents using our academic resources in Rwanda.</p>
+
+            <h2 id="data-collection">2. Data We Collect</h2>
+            <p>We only collect information that is necessary to provide you with the best educational experience. This may include:</p>
+            <ul>
+                <li><strong>Usage Data:</strong> Which books or lab manuals are downloaded most frequently.</li>
+                <li><strong>Communication:</strong> Emails or messages sent through our contact and phone support portals.</li>
+                <li><strong>Technical Data:</strong> Device type and browser information to ensure PDF compatibility.</li>
+            </ul>
+
+            <h2 id="data-usage">3. How We Use Your Data</h2>
+            <p>Your data is used strictly for academic and platform improvement purposes:</p>
+            <ul>
+                <li>To maintain and update the digital library.</li>
+                <li>To respond to your support requests and inquiries.</li>
+                <li>To analyze which levels (Kindergarten, TSS, etc.) need more resources.</li>
+            </ul>
+
+            <h2 id="security">4. Data Security</h2>
+            <p>We implement professional security measures to maintain the safety of your information. We do not sell, trade, or otherwise transfer your data to outside parties. All resources are served over secure connections.</p>
+
+            <h2 id="contact">5. Contact Us</h2>
+            <p>If you have questions about this Privacy Policy, you can reach our administrative team at:</p>
+            <p><strong>Email:</strong> bedakwihangana1@gmail.com<br>
+            <strong>Location:</strong> Nyarugenge, Kigali, Rwanda</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <h2 style="margin-bottom: 20px;">Beacon Education<span>🖱</span></h2>
+                <p style="color: #94a3b8; font-size: 0.9rem;">Elevating Rwandan academic standards through digital accessibility.</p>
+            </div>
+            <div>
+                <h4 style="color: var(--accent); margin-bottom: 20px; font-size: 0.75rem;">Legal</h4>
+                <a href="privacy policy.html" style="color: #94a3b8; text-decoration: none; display: block; margin-bottom: 10px; font-size: 0.85rem;">Privacy Policy</a>
+                <a href="terms of use.html" style="color: #94a3b8; text-decoration: none; display: block; font-size: 0.85rem;">Terms of Use</a>
+            </div>
+            <div>
+                <h4 style="color: var(--accent); margin-bottom: 20px; font-size: 0.75rem;">Support</h4>
+                <a href="help.html" style="color: #94a3b8; text-decoration: none; display: block; margin-bottom: 10px; font-size: 0.85rem;">Help Center</a>
+                <a href="contact.html" style="color: #94a3b8; text-decoration: none; display: block; font-size: 0.85rem;">Contact</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Beacon Education MOVEMENT. ALL RIGHTS RESERVED.
+        </div>
+    </footer>
+
+</body>
+</html>

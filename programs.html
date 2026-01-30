@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <title>Explore Schools | Beacon Education🖱</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Professional Dark Palette */
+            --bg: #0b0f1a;
+            --surface: #161e2d;
+            --surface-accent: #1e293b;
+            --text: #ffffff;
+            --text-muted: #94a3b8;
+            --primary: #3b82f6;
+            --secondary: #ff9100;
+            --border: rgba(255, 255, 255, 0.1);
+            --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        [data-theme="light"] {
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --surface-accent: #f1f5f9;
+            --text: #0f172a;
+            --text-muted: #64748b;
+            --primary: #2563eb;
+            --secondary: #ea580c;
+            --border: #e2e8f0;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        * { box-sizing: border-box;
+             margin: 0;
+              padding: 0; 
+              font-family: 'Plus Jakarta Sans', sans-serif; 
+              transition: all 0.3s ease;
+             }
+        body {
+             background-color: var(--bg);
+              color: var(--text);
+               line-height: 1.6;
+                overflow-x: hidden;
+             }
+
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+             justify-content: space-between;
+              align-items: center;
+            padding: 1rem 6%;
+             background: var(--surface);
+            position: sticky; 
+            top: 0;
+             z-index: 1000;
+              border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(15px);
+        }
+        .logo-text {
+             font-size: 1.5rem;
+              font-weight: 800;
+               color: var(--primary); 
+               text-decoration: none;
+             }
+        .nav-menu { 
+            display: flex;
+             list-style: none;
+              gap: 2rem;
+             }
+        .nav-link {
+             text-decoration: none; 
+             color: var(--text);
+              font-weight: 600; 
+              font-size: 0.95rem;
+             }
+        .nav-link:hover {
+             color: var(--primary);
+             }
+
+        .nav-controls {
+             display: flex;
+              align-items: center;
+               gap: 1rem; 
+            }
+        select, .theme-btn {
+            background: var(--surface-accent);
+             color: var(--text);
+              border: 1px solid var(--border);
+            padding: 0.5rem 0.8rem;
+             border-radius: 10px;
+              cursor: pointer;
+               font-size: 0.85rem;
+        }
+
+        /* Hero Banner */
+        .explore-hero {
+            background: linear-gradient(rgba(11, 15, 26, 0.7), rgba(11, 15, 26, 0.7)), url('https://plus.unsplash.com/premium_photo-1721080251127-76315300cc5c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8c29mdHdhcmUlMjBkZXZlbG9wbWVudHxlbnwwfHwwfHx8MA%3D%3D');
+            background-size: cover;
+             background-position: center;
+            height: 1020px;
+             display: flex;
+              flex-direction: column;
+            justify-content: center; 
+            align-items: center; 
+            text-align: center;
+            padding: 0 6%;
+        }
+        .explore-hero h1 { 
+            font-size: 3.5rem; 
+            font-weight: 800; 
+            margin-bottom: 1rem;
+         }
+        .explore-hero p {
+             font-size: 1.2rem; 
+             color: #cbd5e1; 
+             max-width: 700px; 
+            }
+
+        /* School Grid */
+        .grid-container {
+             padding: 5rem 6%;
+             }
+        .school-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 2.5rem; 
+        }
+
+        .school-card {
+            background: var(--surface);
+             border-radius: 30px;
+              overflow: hidden;
+            border: 1px solid var(--border);
+             position: relative;
+        }
+        .school-card:hover {
+             transform: translateY(-10px); 
+             box-shadow: var(--shadow); 
+             border-color: var(--primary);
+             }
+
+        .image-container { 
+            width: 100%;
+             height: 350px; 
+             overflow: hidden;
+              position: relative; 
+            }
+        .image-container img {
+             width: 100%;
+              height: 100%;
+               object-fit: cover;
+                transition: transform 0.5s;
+             }
+        .school-card:hover .image-container img { 
+            transform: scale(1.1);
+         }
+
+        .card-content { 
+            padding: 2.5rem;
+         }
+        .badge { 
+            background: var(--primary); 
+            color: white; 
+            padding: 5px 15px; 
+            border-radius: 50px; 
+            font-size: 0.75rem;
+             font-weight: 700; 
+            text-transform: uppercase;
+             margin-bottom: 1rem;
+              display: inline-block;
+        }
+        .card-content h2 { 
+            font-size: 1.8rem;
+             margin-bottom: 1rem;
+             }
+        .card-content p {
+             color: var(--text-muted);
+              margin-bottom: 2rem;
+               font-size: 1rem;
+             }
+
+        .explore-btn {
+            display: block;
+             width: 100%;
+              text-align: center;
+            padding: 1.2rem;
+             background: var(--primary); 
+             color: white;
+            text-decoration: none; 
+            border-radius: 15px; 
+            font-weight: 700;
+        }
+        .explore-btn:hover { 
+            background: var(--secondary); 
+        }
+
+        /* Standard Footer */
+        footer {
+             background: var(--surface);
+              padding: 5rem 6% 2rem;
+               border-top: 1px solid var(--border);
+                margin-top: 4rem; 
+            }
+        .footer-grid {
+             display: grid;
+              grid-template-columns: 2fr 1fr 1fr;
+               gap: 4rem; margin-bottom: 4rem;
+             }
+        .footer-col h3 {
+             color: var(--primary); 
+             margin-bottom: 1.5rem;
+             }
+        .footer-col p, .footer-col a { 
+            color: var(--text-muted);
+             text-decoration: none; 
+             margin-bottom: 0.8rem; 
+             display: block; 
+            }
+        .footer-bottom {
+             border-top: 1px solid var(--border);
+              padding-top: 2rem;
+               text-align: center;
+                color: var(--text-muted);
+             }
+
+        @media (max-width: 768px) {
+            .explore-hero h1 {
+                 font-size: 2.5rem; 
+                }
+            .footer-grid {
+                 grid-template-columns: 1fr;
+                 }
+        }
+        .h1{
+                color:orange;
+             }
+              .btn {
+            background: var(--primary);
+             color: white;
+              padding: 1rem 2rem;
+            border-radius: 14px;
+             text-decoration: none;
+              font-weight: 700;
+            display: inline-block;
+             border: none; 
+             text-align: center;
+              width: 100%;
+        }
+        .btn-sec {
+             background: var(--secondary);
+             }
+
+
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <a href="index.html" class="logo-text">Beacon Education🖱</a>
+    <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="programs.html" class="nav-link" style="color:var(--primary)">Programs</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+         <li><a href="resources.html" class="nav-link">Resources</a></li>
+        <li><a href="our vision.html" class="nav-link">Our Vision</a></li>
+        <li><a href="curriclum.html" class="nav-link">Curriculum</a></li>
+        <li><a href="help center.html" class="nav-link">Help Center</a></li>
+        <a href="create.html" class="btn" style="padding: 0.6rem 1.2rem; font-size: 0.8rem; width: auto;">Log In</a>
+
+    </ul>
+    <!--
+    <div class="nav-controls">
+        <select id="langSwitcher" onchange="updateLang()">
+            <option value="en">English</option>
+            <option value="kn">Kinyarwanda</option>
+            <option value="fr">Français</option>
+        </select>
+        <button class="theme-btn" onclick="toggleTheme()" id="themeIcon">🌙</button>
+    </div>
+-->
+</nav>
+
+<header class="explore-hero">
+    <h1 id="heroTitle">Explore Your Programmes</h1>
+    <p id="heroDesc">Discover specialized learning paths tailored to the Rwandan National Curriculum.</p>
+</header>
+
+<main class="grid-container">
+    <div class="school-grid">
+        <div class="school-card">
+            <div class="image-container"><img src="ooo.jpg" alt="Kindergarten"></div>
+            <div class="card-content">
+                <span class="badge">Ages 3-6</span>
+                <h2>Kindergarten</h2>
+                <p>Early discovery through play-based learning and foundational literacy.</p>
+                <a href="create.html" class="explore-btn">Enter Campus</a>
+            </div>
+        </div>
+
+        <div class="school-card">
+            <div class="image-container"><img src="primary2.jpg" alt="Primary"></div>
+            <div class="card-content">
+                <span class="badge">P1 - P6</span>
+                <h2>Primary School</h2>
+                <p>Developing core competencies in Mathematics, Science, and Languages.</p>
+                <a href="create.html" class="explore-btn">Enter Campus</a>
+            </div>
+        </div>
+
+        <div class="school-card">
+            <div class="image-container"><img src="secondary2.jpg" alt="Secondary"></div>
+            <div class="card-content">
+                <span class="badge">O & A Levels</span>
+                <h2>Secondary School</h2>
+                <p>Rigorous academic training for national examinations and career pathways.</p>
+                <a href="create.html" class="explore-btn">Enter Campus</a>
+            </div>
+        </div>
+
+        <div class="school-card">
+            <div class="image-container"><img src="tss4.jpg" alt="TSS"></div>
+            <div class="card-content">
+                <span class="badge">Technical</span>
+                <h2>TSS / TVET</h2>
+                <p>Hands-on vocational skills and technology-driven technical training.</p>
+                <a href="create.html" class="explore-btn">Enter Campus</a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h3>Becon education🖱</h3>
+            <p>Elevating education through digital innovation across Rwanda.</p>
+            <p>📍 Kigali, Rwanda</p>
+        </div>
+        <div class="footer-col">
+            <h4 class="h1">NAVIGATE</h4><br>
+            <a href="our vision.html">Our Vision</a>
+            <a href="teacher.html">Teacher Portal</a>
+            <a href="resources.html">Resources</a>
+             <a href="help center.html">Help center</a>
+              <a href="about.html">about</a>
+               <a href="curriclum.html">curriculum</a>
+                <a href="create.html">Login</a>
+        </div>
+        </div>
+        <div class="footer-col">
+            <h4 class="h1">SUPPORT</h4><br>
+            <a href="mailto:bedakwihangana1@gmail.com">Contact Us</a>
+            <a href="privacy policy.html">Privacy Policy</a>
+            <a href="terms of use.html">Terms of Service</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        © 2026 Beacon Education🖱. Empowering the Next Generation.
+    </div>
+</footer>
+
+<script>
+    function toggleTheme() {
+        const html = document.documentElement;
+        const icon = document.getElementById('themeIcon');
+        if (html.getAttribute('data-theme') === 'dark') {
+            html.setAttribute('data-theme', 'light');
+            icon.innerText = '☀️';
+        } else {
+            html.setAttribute('data-theme', 'dark');
+            icon.innerText = '🌙';
+        }
+    }
+
+    function updateLang() {
+        const lang = document.getElementById('langSwitcher').value;
+        const title = document.getElementById('heroTitle');
+        const desc = document.getElementById('heroDesc');
+        
+        if(lang === 'kn') {
+            title.innerText = "Shakashaka Amashuri Yawe";
+            desc.innerText = "Vumbura inzira z'imyigishirize yihariye ijyanye na gahunda y'uburezi mu Rwanda.";
+        } else if (lang === 'fr') {
+            title.innerText = "Explorez Vos Écoles";
+            desc.innerText = "Découvrez des parcours d'apprentissage spécialisés adaptés au curriculum national rwandais.";
+        } else {
+            title.innerText = "Explore Your Schools";
+            desc.innerText = "Discover specialized learning paths tailored to the Rwandan National Curriculum.";
+        }
+    }
+</script>
+
+</body>
+</html>

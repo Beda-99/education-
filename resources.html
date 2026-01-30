@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="logo.png" type="image/x-icon">
+<title>Academic Library | Beacon Education🖱</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+--kinder:#ff4757;--primary:#2ed573;--secondary:#3742fa;
+--tss:#f39c12;--dark:#0f172a;--bg:#f1f5f9;
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Plus Jakarta Sans',sans-serif}
+body{background:var(--bg);color:var(--dark);min-height:100vh}
+
+/* NAVIGATION */
+nav{
+background:var(--dark);
+padding:1rem 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;
+top:0;
+z-index:1000
+}
+.logo{color:white;font-weight:800;font-size:1.4rem;text-decoration:none}
+.nav-links a{
+color:#94a3b8;
+text-decoration:none;
+margin-left:20px;
+font-size:.85rem;
+font-weight:600
+}
+.nav-links a:hover{color:white}
+.btn{
+background:orange;
+color:white;
+padding:.6rem 1.2rem;
+border-radius:14px;
+text-decoration:none;
+font-weight:700
+}
+
+/* HEADER */
+.header{
+background:var(--dark);
+color:white;
+padding:60px 8% 80px;
+text-align:center
+}
+.search-container{max-width:600px;margin:25px auto}
+.search-container input{
+width:100%;
+padding:18px 25px;
+border-radius:12px;
+border:none;
+font-size:1rem;
+outline:none
+}
+
+/* TABS */
+.tabs{
+display:flex;
+justify-content:center;
+gap:10px;
+margin:40px 0;
+flex-wrap:wrap
+}
+.tab-btn{
+padding:12px 24px;
+border-radius:8px;
+border:none;
+background:white;
+cursor:pointer;
+font-weight:700
+}
+.tab-btn.active{
+background:var(--dark);
+color:white
+}
+
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+gap:25px;
+padding:0 8% 80px
+}
+.book-card{
+background:white;
+border-radius:15px;
+padding:25px;
+border-left:6px solid #eee;
+display:flex;
+flex-direction:column
+}
+.k-line{border-color:var(--kinder)}
+.p-line{border-color:var(--primary)}
+.s-line{border-color:var(--secondary)}
+.t-line{border-color:var(--tss)}
+
+.tag{
+font-size:.65rem;
+font-weight:800;
+text-transform:uppercase;
+margin-bottom:10px
+}
+.book-card h3{font-size:1.1rem;margin-bottom:10px}
+.book-card p{
+font-size:.85rem;
+color:#64748b;
+margin-bottom:20px;
+flex-grow:1
+}
+.btn-dl{
+background:#f8fafc;
+color:var(--dark);
+text-decoration:none;
+padding:12px;
+border-radius:8px;
+text-align:center;
+font-weight:700;
+font-size:.8rem;
+border:1px solid #e2e8f0
+}
+.btn-dl:hover{
+background:var(--dark);
+color:white
+}
+</style>
+</head>
+
+<body>
+
+<!-- ORIGINAL NAVIGATION (UNDO DONE) -->
+<nav>
+    <a href="index.html" class="logo">Beacon Education<span></span>🖱</a>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="programs.html">Programs</a>
+        <a href="contact.html">Contact</a>
+        <a href="resources.html" style="color: blue;">Resources</a>
+        <a href="our vision.html">Our Vision</a>
+        <a href="curriclum.html">Curriculum</a>
+        <a href="help center.html">Help Center</a>
+        <a href="create.html" class="btn">Log In</a>
+    </div>
+</nav>
+
+<header class="header">
+<h1>Academic Bookshelf</h1>
+<p>Providing educational materials for all levels</p>
+<div class="search-container">
+<input type="text" id="userSearch" placeholder="Search for a book..." onkeyup="updateDisplay()">
+</div>
+</header>
+
+<div class="tabs">
+<button class="tab-btn active" onclick="setFilter('all')">All Books</button>
+<button class="tab-btn" onclick="setFilter('kinder')">Kindergarten</button>
+<button class="tab-btn" onclick="setFilter('primary')">Primary</button>
+<button class="tab-btn" onclick="setFilter('secondary')">Secondary</button>
+<button class="tab-btn" onclick="setFilter('tss')">TSS / TVET</button>
+</div>
+
+<main class="grid" id="bookGrid"></main>
+
+<script>
+const libraryData=[
+{level:'tss',title:'VUE.JS FRAMEWORK ',desc:'Aply the SPA Content.',file:'TeM_SWDVF301_VUE JS Framework.pdf'},
+{level:'tss',title:'UX/UI DESIGN ',desc:'generate beautiful interface .',file:'TeM_SWDUX301_UIUX Design.pdf'},
+
+{level:'tss',title:'GRAPHIC DESIGN NOTES',desc:'Graphic Design by figma.',file:'GRAPHIC DESIGN NOTES.pdf'},
+{level:'primary',title:'P6 Exam Prep',desc:'Past papers.',file:'p6_prep.pdf'},
+
+{level:'secondary',title:'Senior 4 Physics',desc:'Mechanics & energy.',file:'s4_phy.pdf'},
+{level:'secondary',title:'Senior 6 History',desc:'Modern Rwanda.',file:'s6_hist.pdf'},
+
+{level:'tss',title:'Electronics Level 3',desc:'Basic circuits.',file:'tss_elec.pdf'},
+{level:'tss',title:'Culinary Arts Manual',desc:'Food safety.',file:'tss_chef.pdf'}
+];
+
+let currentFilter='all';
+
+function updateDisplay(){
+const grid=document.getElementById('bookGrid');
+const search=document.getElementById('userSearch').value.toLowerCase();
+grid.innerHTML='';
+
+libraryData
+.filter(b=>(currentFilter==='all'||b.level===currentFilter)&&b.title.toLowerCase().includes(search))
+.forEach(book=>{
+const lineMap={kinder:'k-line',primary:'p-line',secondary:'s-line',tss:'t-line'};
+grid.innerHTML+=`
+<div class="book-card ${lineMap[book.level]}">
+<span class="tag">${book.level}</span>
+<h3>${book.title}</h3>
+<p>${book.desc}</p>
+<a href="files/${book.file}" class="btn-dl" download>DOWNLOAD PDF</a>
+</div>`;
+});
+}
+
+function setFilter(lvl){
+currentFilter=lvl;
+document.querySelectorAll('.tab-btn').forEach(btn=>btn.classList.remove('active'));
+event.target.classList.add('active');
+updateDisplay();
+}
+
+window.onload=updateDisplay;
+</script>
+
+</body>
+</html>
