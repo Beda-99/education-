@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beacon Education🖱 | Premium Student Portal</title>
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0b0f1a;
+            --surface: #161e2d; 
+            --surface-accent: #1e293b;
+            --text: #ffffff;
+            --text-muted: #94a3b8;
+            --primary: #3b82f6;
+            --secondary: #ff9100;
+            --error: #ff4d4d;
+            --border: rgba(255, 255, 255, 0.1);
+            --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; transition: 0.3s ease; }
+        body { background-color: var(--bg); color: var(--text); overflow: hidden; height: 100vh; display: flex; align-items: center; justify-content: center; }
+
+        .auth-container { width: 100%; max-width: 450px; padding: 2rem; z-index: 10; }
+        .auth-card { background: var(--surface); padding: 3rem; border-radius: 35px; border: 1px solid var(--border); box-shadow: var(--shadow); text-align: center; position: relative; }
+        .logo-area { margin-bottom: 2rem; }
+        .logo-area h1 { color: var(--primary); font-weight: 800; font-size: 1.8rem; }
+        .input-group { text-align: left; margin-bottom: 1.2rem; }
+        label { display: block; margin-bottom: 0.5rem; font-size: 0.85rem; font-weight: 600; color: var(--text-muted); }
+        input, select { width: 100%; padding: 1rem; border-radius: 12px; background: var(--bg); border: 1px solid var(--border); color: var(--text); font-size: 1rem; }
+        input:focus { border-color: var(--primary); outline: none; }
+        .btn-main { width: 100%; padding: 1.1rem; border: none; border-radius: 15px; background: var(--primary); color: white; font-weight: 700; font-size: 1rem; cursor: pointer; margin-top: 1rem; }
+        .btn-main:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3); }
+        .error-box { background: rgba(255, 77, 77, 0.1); color: var(--error); padding: 0.8rem; border-radius: 10px; font-size: 0.85rem; margin-bottom: 1.5rem; display: none; }
+        .toggle-btn { margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-muted); }
+        .toggle-btn span { color: var(--secondary); cursor: pointer; font-weight: 700; text-decoration: underline; }
+        .bg-glow { position: absolute; width: 400px; height: 400px; background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, transparent 70%); z-index: -1; filter: blur(50px); }
+    </style>
+</head>
+<body>
+
+    <div class="bg-glow" style="top: 0; left: 0;"></div>
+    <div class="bg-glow" style="bottom: 0; right: 0;"></div>
+
+    <div class="auth-container">
+        <div class="auth-card" id="loginView">
+            <div class="logo-area"><h1>Beacon Education🖱</h1></div>
+            <h2>Student Login</h2>
+            <p style="color: var(--text-muted); margin-bottom: 2rem;">Welcome back to your dashboard</p>
+            <div class="error-box" id="loginError">Account not found or wrong password.</div>
+            <div class="input-group">
+                <label>Email Address</label>
+                <input type="email" id="l-email" placeholder="name@student.com">
+            </div>
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" id="l-pass" placeholder="••••••••">
+            </div>
+            <button class="btn-main" onclick="processLogin()">Enter Portal</button>
+            <p class="toggle-btn">New student? <span onclick="showSignup()">Create Account</span></p>
+        </div>
+
+        <div class="auth-card" id="signupView" style="display: none;">
+            <div class="logo-area"><h1>Beacon Education🖱</h1></div>
+            <h2>Join Platform</h2>
+            <p style="color: var(--text-muted); margin-bottom: 2rem;">Set up your academic profile</p>
+            <div class="input-group">
+                <label>Full Name</label>
+                <input type="text" id="s-name" placeholder="Enter your name">
+            </div>
+            <div class="input-group">
+                <label>Academic Level</label>
+                <select id="s-level">
+                    <option value="kindergarten">Kindergarten</option>
+                    <option value="primary">Primary School</option>
+                    <option value="secondary">Secondary School</option>
+                    <option value="tss">TSS / TVET</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" id="s-email" placeholder="email@address.com">
+            </div>
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" id="s-pass" placeholder="Create Password">
+            </div>
+            <button class="btn-main" style="background: var(--secondary);" onclick="processSignup()">Register Now</button>
+            <p class="toggle-btn">Already registered? <span onclick="showLogin()">Login here</span></p>
+        </div>
+    </div>
+
+    <script>
+        // --- PERMANENT STORAGE LOGIC ---
+        // Loads data from localStorage on startup. If empty, starts with an empty array.
+        let studentDatabase = JSON.parse(localStorage.getItem('beacon_students')) || [];
+
+        function showSignup() {
+            document.getElementById('loginView').style.display = 'none';
+            document.getElementById('signupView').style.display = 'block';
+        }
+
+        function showLogin() {
+            document.getElementById('signupView').style.display = 'none';
+            document.getElementById('loginView').style.display = 'block';
+        }
+
+        function processSignup() {
+            const name = document.getElementById('s-name').value.trim();
+            const level = document.getElementById('s-level').value;
+            const email = document.getElementById('s-email').value.trim();
+            const pass = document.getElementById('s-pass').value.trim();
+
+            if(!name || !email || !pass) {
+                alert("Please complete all fields.");
+                return;
+            }
+
+            // Check if email is already taken
+            if (studentDatabase.some(user => user.email === email)) {
+                alert("This email is already registered. Please login.");
+                return;
+            }
+
+            // Add new user to our array
+            const newUser = { name, level, email, pass };
+            studentDatabase.push(newUser);
+
+            // Save the updated array back to localStorage permanently
+            localStorage.setItem('beacon_students', JSON.stringify(studentDatabase));
+
+            alert("Account created successfully! You can now login.");
+            showLogin();
+        }
+
+        function processLogin() {
+            const email = document.getElementById('l-email').value.trim();
+            const pass = document.getElementById('l-pass').value.trim();
+            const errorBox = document.getElementById('loginError');
+
+            // Search the saved database
+            const user = studentDatabase.find(u => u.email === email && u.pass === pass);
+
+            if(user) {
+                errorBox.style.display = 'none';
+                sessionStorage.setItem("activeUser", user.name);
+                
+                // Redirect based on level
+                switch(user.level) {
+                    case 'kindergarten': window.location.href = "1st of kindergaten.html"; break;
+                    case 'primary': window.location.href = "choose.html"; break;
+                    case 'secondary': window.location.href = "reload secondary.html"; break;
+                    case 'tss': window.location.href = "reload tss.html"; break;
+                    default: window.location.href = "start up.html";
+                }
+            } else {
+                errorBox.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

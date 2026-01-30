@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mastery Challenge | Beacon Education🖱</title>
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;700&family=Plus+Jakarta+Sans:wght@800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #6c5ce7;
+            --success: #00b894;
+            --danger: #ff7675;
+            --gold: #f1c40f;
+        }
+
+        * { 
+            margin: 0;
+             padding: 0;
+              box-sizing: border-box;
+               font-family: 'Fredoka', sans-serif; 
+            }
+        body {
+             background: #f0f3ff; 
+             color: #2d3436;
+              overflow-x: hidden;
+             }
+
+        /* --- PROFESSIONAL NAV --- */
+        nav {
+            background: var(--primary);
+            padding: 1.2rem 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky; top: 0; z-index: 1000;
+            border-bottom: 5px solid var(--accent);
+        }
+        .logo {
+             color: white; 
+             font-weight: 800;
+              font-size: 1.5rem; 
+              text-decoration: none; 
+              font-family: 'Plus Jakarta Sans';
+             }
+        .logo span {
+             color: #fab1a0; 
+            }
+        .nav-links a {
+             color: #94a3b8;
+              text-decoration: none; 
+              margin-left: 20px; 
+              font-weight: 700;
+             }
+
+        /* --- EXAM BOARD --- */
+        .exam-container {
+            max-width: 850px;
+            margin: 40px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 50px;
+            box-shadow: 0 20px 0 rgba(0,0,0,0.05);
+            border: 10px solid #dfe6e9;
+            position: relative;
+        }
+
+        .bar-bg { 
+            background: #eee;
+             height: 15px; 
+             border-radius: 20px;
+              overflow: hidden;
+               margin: 20px 0;
+             }
+        .bar-fill {
+             background: var(--accent); 
+             height: 100%;
+              width: 0%;
+               transition: 0.4s;
+             }
+
+        .q-text {
+             font-size: 2.2rem;
+              margin-bottom: 35px;
+               text-align: center;
+             }
+
+        .options-grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr;
+             gap: 15px;
+             }
+        .btn-opt {
+            padding: 20px; 
+            font-size: 1.4rem; 
+            border-radius: 20px;
+             border: 4px solid #f1f2f6;
+            background: white;
+             cursor: pointer; 
+             transition: 0.2s;
+              box-shadow: 0 6px 0 #dfe6e9;
+        }
+        .btn-opt:hover {
+             transform: translateY(-3px); 
+             border-color: var(--accent);
+             }
+
+        /* --- MAGIC POSTCARD (CERTIFICATE) --- */
+        #postcard {
+            display: none;
+            background: white;
+            border: 15px solid var(--gold);
+            border-radius: 30px;
+            padding: 50px;
+            text-align: center;
+            background-image: radial-gradient(circle, #fff 20%, #fdf9e7 100%);
+            position: relative;
+            animation: zoomIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        @keyframes zoomIn { 
+            from { transform: scale(0); } to { transform: scale(1); } 
+        }
+
+        .firework {
+             font-size: 4rem; 
+             position: absolute; 
+             animation: explode 1.5s infinite;
+             }
+        @keyframes explode { 
+            0% { transform: scale(1); opacity: 1; } 100% { transform: scale(2); opacity: 0; } 
+        }
+
+        /* --- FUN FOOTER --- */
+        .funny-footer {
+            background: var(--primary); 
+            color: white; 
+            padding: 60px 10% 30px;
+            margin-top: 100px;
+             text-align: center;
+              border-top: 10px solid var(--gold);
+        }
+        .dancing {
+             font-size: 5rem; 
+             display: inline-block;
+              animation: swing 1s infinite alternate;
+             }
+        @keyframes swing { 
+            from { transform: rotate(-10deg); } to { transform: rotate(10deg); }
+         }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="1st of kindergaten.html" class="logo">Beacon Education<span>🖱</span></a>
+        <div class="nav-links">
+            <span style="color: #55efc4;">Student: <span id="user-name">superhero</span></span>
+            <a href="index.html">Home</a>
+        </div>
+    </nav>
+
+    <main class="exam-container">
+        <div id="quiz-ui">
+            <p style="text-align: center; font-weight: bold;">Question <span id="q-num">1</span> of 100</p>
+            <div class="bar-bg"><div class="bar-fill" id="p-bar"></div></div>
+            <h2 class="q-text" id="q-display">Loading...</h2>
+            <div class="options-grid" id="opt-box"></div>
+        </div>
+
+        <div id="postcard">
+            <div class="firework" style="top:10px; left:10px;">🎆</div>
+            <div class="firework" style="top:10px; right:10px;">🎇</div>
+            <div class="firework" style="bottom:10px; left:10px;">✨</div>
+            <div class="firework" style="bottom:10px; right:10px;">🎉</div>
+
+            <h1 style="color: var(--gold); font-size: 3.5rem;">CONGRATULATION!</h1>
+            <p style="font-size: 1.8rem; margin: 20px 0;">Great Job, <span id="winner-name"></span>!</p>
+            <div style="font-size: 5rem;">🎓</div>
+            <h2 style="color: var(--success); margin: 20px 0;">You have to go in Primary School!</h2>
+            <p style="font-size: 1.2rem; color: #666;">You scored <span id="final-score"></span>/100</p>
+            <button onclick="window.print()" class="btn-opt" style="background: var(--gold); margin-top: 20px;">Print My Postcard 🖨️</button>
+            <button onclick="window.location.href='1st of kindergarten'" class="btn-opt" style="margin-top: 20px;">Back Home</button>
+        </div>
+
+        <div id="fail-screen" style="display:none; text-align:center;">
+            <h2 style="font-size: 3rem; color: var(--danger);">Study More! 📚</h2>
+            <p style="font-size: 1.5rem; margin: 20px 0;">Reason: You got less than 20 marks. You must repeat the lessons.</p>
+            <button onclick="location.reload()" class="btn-opt" style="background: var(--danger); color: white;">Try Again 🔄</button>
+        </div>
+    </main>
+
+    <footer class="funny-footer">
+        <div class="dancing">🐘🦒🦁</div>
+        <div style="margin-top:20px;">
+            <p>&copy; 2026 Beacon Education MOVEMENT - Educational Digital Series.</p>
+        </div>
+    </footer>
+
+    <script>
+        const student = localStorage.getItem("userName") || "Beda";
+        document.getElementById("user-name").innerText = student;
+        document.getElementById("winner-name").innerText = student;
+
+        const pool = [
+            { q: "What letter is after A?", a: "B", o: ["B","C","D","E"] },
+            { q: "What is 1 + 1?", a: "2", o: ["1","2","3","4"] },
+            { q: "Which one is Red?", a: "🍎", o: ["🍎","🍏","🍌","🍇"] },
+            { q: "A circle is...", a: "Round", o: ["Square","Round","Flat","Triangle"] }
+        ];
+
+        let current = 0;
+        let score = 0;
+        let examSet = [];
+
+        function start() {
+            for(let i=0; i<100; i++) examSet.push({...pool[Math.floor(Math.random()*pool.length)]});
+            show();
+        }
+
+        function show() {
+            const data = examSet[current];
+            document.getElementById("q-num").innerText = current + 1;
+            document.getElementById("q-display").innerText = data.q;
+            document.getElementById("p-bar").style.width = (current + 1) + "%";
+            const box = document.getElementById("opt-box");
+            box.innerHTML = "";
+            data.o.forEach(opt => {
+                const b = document.createElement("button");
+                b.className = "btn-opt";
+                b.innerText = opt;
+                b.onclick = () => {
+                    if(opt === data.a) score++;
+                    current++;
+                    if(current < 100) show();
+                    else finish();
+                };
+                box.appendChild(b);
+            });
+        }
+
+        function finish() {
+            document.getElementById("quiz-ui").style.display = "none";
+            if(score >= 20) {
+                document.getElementById("postcard").style.display = "block";
+                document.getElementById("final-score").innerText = score;
+            } else {
+                document.getElementById("fail-screen").style.display = "block";
+            }
+        }
+
+        start();
+    </script>
+</body>
+</html>

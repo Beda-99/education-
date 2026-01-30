@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum Framework | Beacon Education🖱</title>
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-light: #eff6ff;
+            --dark: #0f172a;
+            --slate: #64748b;
+            --accent: #fbbf24;
+            --border: #f1f5f9;
+            --white: #ffffff;
+        }
+
+        * {
+             margin: 0;
+              padding: 0; 
+              box-sizing: border-box; 
+              font-family: 'Plus Jakarta Sans', sans-serif;
+             }
+        body {
+             background: #fafafa;
+              color: var(--dark); 
+              line-height: 1.6;
+             }
+
+        /* --- UNIFIED NAVIGATION --- */
+        nav {
+            background: var(--dark);
+            padding: 1rem 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo {
+             color: white;
+              font-weight: 800;
+               font-size: 1.4rem; 
+               text-decoration: none; 
+               letter-spacing: -0.5px;
+             }
+        .logo span { 
+            color: var(--accent);
+         }
+        .nav-links a {
+             color: #94a3b8;
+              text-decoration: none; 
+              margin-left: 25px; 
+              font-size: 0.85rem; 
+              font-weight: 600; 
+              transition: 0.3s; 
+            }
+        .nav-links a:hover {
+             color: white;
+             }
+
+        /* --- HEADER SECTION --- */
+        .page-header {
+            background: var(--dark);
+            color: white;
+            padding: 100px 8% 140px;
+            text-align: center;
+        }
+        .page-header h1 { 
+            font-size: 3rem;
+             font-weight: 800;
+              margin-bottom: 20px;
+               letter-spacing: -1.5px;
+             }
+        .page-header p { 
+            color: #94a3b8; 
+            font-size: 1.1rem;
+             max-width: 650px;
+              margin: 0 auto;
+               opacity: 0.8;
+             }
+
+        /* --- CURRICULUM GRID --- */
+        .curriculum-container {
+            max-width: 1200px;
+            margin: -80px auto 100px;
+            padding: 0 5%;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 40px;
+        }
+
+        /* --- LEFT SIDEBAR NAV --- */
+        .level-selector {
+            background: white;
+            padding: 30px;
+            border-radius: 24px;
+            height: fit-content;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            position: sticky;
+            top: 100px;
+        }
+        .level-selector h4 {
+             font-size: 0.75rem;
+              color: var(--slate); 
+              text-transform: uppercase; 
+              letter-spacing: 1px;
+               margin-bottom: 20px;
+             }
+        .level-btn {
+            display: block;
+            padding: 15px 20px;
+            margin-bottom: 10px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--slate);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: 0.3s;
+            border: 1px solid transparent;
+        }
+        .level-btn:hover { 
+            background: var(--primary-light);
+             color: var(--primary);
+             }
+        .level-btn.active {
+             background: var(--primary);
+              color: white;
+               box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2); 
+            }
+
+        /* --- CONTENT CARDS --- */
+        .content-area {
+             display: flex;
+              flex-direction: column;
+               gap: 30px;
+             }
+        .level-card {
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            border: 1px solid var(--border);
+            transition: 0.3s;
+        }
+        .level-card:hover { 
+            border-color: var(--primary); 
+            transform: translateY(-5px);
+             box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+             }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: var(--primary-light);
+            color: var(--primary);
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .level-card h2 {
+             font-size: 1.8rem; 
+             margin-bottom: 15px; 
+             font-weight: 800; 
+            }
+        .level-card p {
+             color: var(--slate);
+              margin-bottom: 25px;
+             }
+
+        /* SUBJECT GRID */
+        .subject-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .subject-tag {
+            background: #f8fafc;
+            padding: 12px 15px;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid #edf2f7;
+        }
+        .subject-tag span { 
+            width: 8px;
+             height: 8px; 
+             border-radius: 50%;
+              background: var(--accent);
+             }
+
+        /* --- FOOTER --- */
+        footer {
+             background: var(--dark);
+              color: white;
+               padding: 100px 8% 40px; 
+               border-radius: 60px 60px 0 0; 
+            }
+        .footer-grid { 
+            display: grid;
+             grid-template-columns: 2fr 1fr 1fr; 
+             gap: 50px; 
+             margin-bottom: 60px;
+             }
+        .footer-bottom { 
+            border-top: 1px solid rgba(255,255,255,0.05);
+             padding-top: 30px;
+              text-align: center;
+               font-size: 0.8rem;
+                color: #475569;
+             }
+
+        @media (max-width: 900px) {
+            .curriculum-container { grid-template-columns: 1fr; }
+            .level-selector { display: none; }
+            .page-header h1 { font-size: 2.2rem; }
+        }
+        /*the button of login*/
+         .btn {
+            background: orange;
+             color: white;
+              padding: 1rem 2rem;
+            border-radius: 14px;
+             text-decoration: none;
+              font-weight: 700;
+            display: inline-block;
+             border: none; 
+             text-align: center;
+              width: 100%;
+        }
+        .btn-sec {
+             background: var(--secondary);
+             }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">Beacon Education<span>🖱</span></a>
+        <div class="nav-links">
+         <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="programs.html" class="nav-link">Programs</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="resources.html" class="nav-link">Resources</a>
+        <a href="our vision.html" class="nav-link" >Our Vision</a>
+        <a href="curriclum.html" class="nav-link" style="color: blue;">Curriculum</a>
+        <a href="help center.html" class="nav-link">Help Center</a>
+        <a href="create.html" class="btn" style="padding: 0.6rem 1.2rem; font-size: 0.8rem; width: auto;">Log In</a>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <h1>Competence Framework</h1>
+        <p>A structured mapping of the Rwandan National Curriculum across all academic milestones.</p>
+    </header>
+
+    <main class="curriculum-container">
+        
+        <aside class="level-selector">
+            <h4>Academic Levels</h4>
+            <a href="learn kindergarten.html" class="level-btn">Pre-Primary</a>
+            <a href="learn primary.html" class="level-btn">Primary School</a>
+            <a href="learn secondary.html" class="level-btn">Secondary School</a>
+            <a href="learn tss.html" class="level-btn active">TSS / TVET</a>
+        </aside>
+
+        <div class="content-area">
+            
+            <section class="level-card" id="kinder">
+                <span class="badge">Ages 3-6</span>
+                <h2>Kindergarten</h2>
+                <p>Early childhood development focusing on social interaction, discovery of the world, and foundational language.</p>
+                <div class="subject-grid">
+                    <div class="subject-tag"><span></span>Creative Arts</div>
+                    <div class="subject-tag"><span></span>Language Dev</div>
+                    <div class="subject-tag"><span></span>Discovery</div>
+                    <div class="subject-tag"><span></span>Basic Numeracy</div>
+                </div>
+            </section>
+
+            <section class="level-card" id="primary">
+                <span class="badge">Ages 7-12</span>
+                <h2>Primary Education</h2>
+                <p>Core development of literacy, mathematical reasoning, and basic scientific principles.</p>
+                <div class="subject-grid">
+                    <div class="subject-tag"><span></span>Mathematics</div>
+                    <div class="subject-tag"><span></span>Social Studies</div>
+                    <div class="subject-tag"><span></span>Science & Tech</div>
+                    <div class="subject-tag"><span></span>ICT Foundations</div>
+                </div>
+            </section>
+
+            <section class="level-card" id="tvet">
+                <span class="badge">Technical Track</span>
+                <h2>TSS / TVET Programs</h2>
+                <p>Practical skill acquisition for technical careers. Designed for direct labor market entry.</p>
+                <div class="subject-grid">
+                    <div class="subject-tag"><span></span>Software Engineering</div>
+                    <div class="subject-tag"><span></span>Industrial Electricity</div>
+                    <div class="subject-tag"><span></span>Food & Beverage</div>
+                    <div class="subject-tag"><span></span>Masonry & Const.</div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <h2 style="margin-bottom: 20px;">Beacon Education<span></span>🖱</h2>
+                <p style="color: #94a3b8; font-size: 0.9rem;">Modern digital resources for the future of Rwanda.</p>
+            </div>
+            <div>
+                <h4 style="color: var(--accent); margin-bottom: 20px; font-size: 0.75rem;">NAVIGATE</h4>
+                <a href="index.html" style="color: #94a3b8; text-decoration: none; display: block; margin-bottom: 10px;">Home</a>
+                <a href="our vision.html" style="color: #94a3b8; text-decoration: none; display: block;">Our Vision </a>
+                 <a href="help center.html" style="color: #94a3b8; text-decoration: none; display: block;">Help Center</a>
+                  <a href="resources.html" style="color: #94a3b8; text-decoration: none; display: block;">Resources</a>
+                   <a href="about.html" style="color: #94a3b8; text-decoration: none; display: block;">About</a>
+                    <a href="curriclum.html" style="color: #94a3b8; text-decoration: none; display: block;">curriclum</a>
+            </div>
+            <div>
+                <h4 style="color: var(--accent); margin-bottom: 20px; font-size: 0.8rem; letter-spacing: 1.5px;">GET HELP</h4>
+                <a href="contact.html" style="color: #94a3b8; text-decoration: none; display: block; margin-bottom: 12px; font-size: 0.85rem;">Email Portal</a>
+                <a href="contact.html" style="color: #94a3b8; text-decoration: none; display: block; font-size: 0.85rem;">WhatsApp</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Beacon Education MOVEMENT. ALL RIGHTS RESERVED.
+        </div>
+    </footer>
+
+</body>
+</html>

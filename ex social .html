@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <title>P1 Social Studies | Beacon Education🖱</title>
+    <style>
+        :root { --blue: #0055a5; --orange: #ff9100; --green: #22c55e; --red: #ef4444; --purple: #6b21a8; }
+        body { font-family: 'Segoe UI', sans-serif; background: #fdfcf0; padding: 20px; text-align: center; }
+        .container { max-width: 700px; margin: auto; background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: left; border-top: 10px solid var(--purple); }
+        
+        .q-card { border-bottom: 2px solid #f0f0f0; padding: 25px 0; }
+        .q-text { font-size: 1.5rem; font-weight: bold; color: #1a202c; margin-bottom: 15px; }
+        
+        .options { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .opt-btn { padding: 18px; border: 2px solid #e2e8f0; border-radius: 15px; background: white; cursor: pointer; font-size: 1.2rem; font-weight: 700; transition: 0.2s; }
+        .active { background: var(--purple) !important; color: white !important; border-color: var(--purple) !important; }
+
+        .finish-btn { width: 100%; padding: 25px; background: var(--purple); color: white; border: none; border-radius: 15px; font-size: 1.8rem; font-weight: 800; cursor: pointer; margin-top: 30px; }
+
+        /* Results Page */
+        #resultPage { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: white; flex-direction: column; justify-content: center; align-items: center; z-index: 2000; padding: 20px; }
+        .score-display { font-size: 6rem; font-weight: 900; margin: 10px; }
+        
+        /* Teacher's Advice Box */
+        .advice-box { background: #fff5f5; border: 3px dashed var(--red); padding: 25px; border-radius: 20px; margin: 20px 0; max-width: 550px; text-align: center; color: #7f1d1d; }
+    </style>
+</head>
+<body>
+
+<div class="container" id="examBox">
+    <h1 style="color:var(--purple); text-align:center;">🌍 P1 Social Studies Exam</h1>
+    
+    <div id="questions-list">
+        <div class="q-card" data-correct="Father">
+            <p class="q-text">1. Who is the head of a family?</p>
+            <div class="options">
+                <button class="opt-btn" onclick="select(this)">Baby</button>
+                <button class="opt-btn" onclick="select(this)">Father</button>
+            </div>
+        </div>
+
+        <div class="q-card" data-correct="School">
+            <p class="q-text">2. Where do we go to learn?</p>
+            <div class="options">
+                <button class="opt-btn" onclick="select(this)">Market</button>
+                <button class="opt-btn" onclick="select(this)">School</button>
+            </div>
+        </div>
+
+        </div>
+
+    <button class="finish-btn" onclick="calculateScore()">CHECK MY MARKS 🖱</button>
+</div>
+
+<div id="resultPage">
+    <h1 id="statusHeader" style="font-size: 3rem;"></h1>
+    <div id="markText" class="score-display">0/20</div>
+    
+    <div id="adviceSection" class="advice-box" style="display:none;">
+        <h2 style="margin-top:0;">💡 Teacher's Advice:</h2>
+        <p style="font-size: 1.3rem;">You worked the exam badly. <b>You must repeat the lessons and try again.</b> Repeating your work helps your brain grow stronger so you can become a leader!</p>
+    </div>
+
+    <button id="mainBtn" onclick="location.reload()" style="padding: 25px 60px; font-size: 1.5rem; cursor: pointer; border-radius: 50px; border: none; color:white; font-weight:bold; box-shadow: 0 10px 20px rgba(0,0,0,0.1);"></button>
+</div>
+
+<script>
+    function select(btn) {
+        const parent = btn.parentElement;
+        parent.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+    }
+
+    function calculateScore() {
+        let score = 0;
+        const questions = document.querySelectorAll('.q-card');
+        const total = questions.length;
+
+        questions.forEach(q => {
+            const correct = q.getAttribute('data-correct');
+            const selected = q.querySelector('.active');
+            if (selected && selected.innerText === correct) {
+                score++;
+            }
+        });
+
+        const screen = document.getElementById('resultPage');
+        const advice = document.getElementById('adviceSection');
+        const btn = document.getElementById('mainBtn');
+        const status = document.getElementById('statusHeader');
+        const markDisplay = document.getElementById('markText');
+
+        screen.style.display = 'flex';
+        markDisplay.innerText = score + " / " + total;
+
+        if (score >= (total / 2)) {
+            // PASSING
+            screen.style.backgroundColor = "#f0fdf4";
+            status.innerText = "EXCELLENT! 🌟";
+            status.style.color = "green";
+            markDisplay.style.color = "green";
+            advice.style.display = "none";
+            btn.innerText = "NEXT LEVEL";
+            btn.style.backgroundColor = "var(--green)";
+        } else {
+            // FAILING - SHOW ADVICE
+            screen.style.backgroundColor = "#fef2f2";
+            status.innerText = "WORKED BADLY 😭";
+            status.style.color = "var(--red)";
+            markDisplay.style.color = "var(--red)";
+            advice.style.display = "block"; 
+            btn.innerText = "RE-STUDY & TRY AGAIN"; 
+            btn.style.backgroundColor = "var(--red)";
+        }
+    }
+</script>
+
+</body>
+</html>

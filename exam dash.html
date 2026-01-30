@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P6 Student Dashboard | National Portal</title>
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --accent: #ff9100;
+            --bg: #f8fafc;
+            --white: #ffffff;
+            --text: #1e293b;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg);
+            margin: 0;
+            color: var(--text);
+        }
+
+        /* Top Header */
+        header {
+            background: var(--primary);
+            color: white;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 800;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        h1 { font-size: 2.2rem; margin-bottom: 10px; color: var(--primary); }
+        .subtitle { color: #64748b; margin-bottom: 40px; }
+
+        /* Subject Grid */
+        .subject-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .subject-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .subject-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary);
+        }
+
+        .icon-box {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .subject-card h3 {
+            margin: 10px 0;
+            font-size: 1.4rem;
+        }
+
+        .exam-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 20px;
+            width: 100%;
+            transition: 0.2s;
+        }
+
+        .exam-btn:hover {
+            background: var(--accent);
+        }
+
+        /* Modal / Popup for Name */
+        #nameModal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 40px;
+            border-radius: 25px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .modal-content input {
+            width: 100%;
+            padding: 15px;
+            margin: 20px 0;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div style="font-size: 1.5rem; font-weight: 800;">Becon Education<a href="index.html" style="color: blue;text-decoration: none;"><span>🖱</span></a></div>
+        <div class="user-info">
+            <span>Primary 6 Student</span>
+            <div class="avatar">P6</div>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>P6 National Exam Dashboard</h1>
+        <p class="subtitle">Select a subject below to begin your official examination.</p>
+
+        <div class="subject-grid">
+            <div class="subject-card">
+                <div class="icon-box">🔢</div>
+                <h3>Mathematics</h3>
+                <p>40 Questions | 2 Hours</p>
+                <button class="exam-btn" onclick="openExam('Mathematics', 'nesa math exam.html')">Take Exam</button>
+            </div>
+
+            <div class="subject-card">
+                <div class="icon-box">📖</div>
+                <h3>English</h3>
+                <p>20 Questions | 1.5 Hours</p>
+                <button class="exam-btn" onclick="openExam('English', 'nesa eng.html')">Take Exam</button>
+            </div>
+
+            <div class="subject-card">
+                <div class="icon-box">🔬</div>
+                <h3>Science</h3>
+                <p>40 Questions | 2 Hours</p>
+                <button class="exam-btn" onclick="openExam('Science', '#')">Take Exam</button>
+            </div>
+
+            <div class="subject-card">
+                <div class="icon-box">🌍</div>
+                <h3>Social Studies</h3>
+                <p>40 Questions | 2 Hours</p>
+                <button class="exam-btn" onclick="openExam('Social Studies', '#')">Take Exam</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="nameModal">
+        <div class="modal-content">
+            <h2 id="modalTitle">Enter Your Name</h2>
+            <p>Please enter your full name as it appears on your student ID.</p>
+            <input type="text" id="studentNameInput" placeholder="Enter Full Name...">
+            <button class="exam-btn" onclick="confirmAndGo()">Start Paper Now</button>
+            <button style="background:none; border:none; color:grey; cursor:pointer; margin-top:10px;" onclick="closeModal()">Cancel</button>
+        </div>
+    </div>
+
+    <script>
+        let currentExamLink = "";
+
+        function openExam(subject, link) {
+            currentExamLink = link;
+            document.getElementById('modalTitle').innerText = "Begin " + subject + " Exam";
+            document.getElementById('nameModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('nameModal').style.display = 'none';
+        }
+
+        function confirmAndGo() {
+            const name = document.getElementById('studentNameInput').value;
+            if(name.trim() === "") {
+                alert("You must enter your name to proceed!");
+            } else {
+                // Save name for the exam page to use
+                sessionStorage.setItem("examUser", name);
+                window.location.href = currentExamLink;
+            }
+        }
+    </script>
+</body>
+</html>
