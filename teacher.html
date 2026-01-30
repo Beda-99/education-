@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Portal | Beacon Education🖱</title>
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0b0f1a; --surface: #161e2d; --text: #ffffff;
+            --primary: #3b82f6; --secondary: #ff9100; --border: rgba(255, 255, 255, 0.1);
+        }
+        [data-theme="light"] {
+            --bg: #f8fafc; --surface: #ffffff; --text: #0f172a; --border: #e2e8f0;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; transition: 0.3s; }
+        body { background-color: var(--bg); color: var(--text); }
+
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 1rem 6%; background: var(--surface); border-bottom: 1px solid var(--border); }
+        
+        .container { padding: 4rem 6%; display: flex; justify-content: center; }
+        
+        /* Professional Card */
+        .app-card {
+            background: var(--surface); padding: 3rem; border-radius: 35px;
+            width: 100%; max-width: 900px; border: 1px solid var(--border);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+        .input-group { text-align: left; margin-bottom: 1rem; }
+        label { display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: 0.9rem; }
+        
+        input, select, textarea {
+            width: 100%; padding: 0.8rem; border-radius: 10px;
+            background: var(--bg); border: 1px solid var(--border); color: var(--text);
+        }
+
+        .btn {
+            padding: 1rem 2.5rem; border-radius: 12px; font-weight: 700;
+            cursor: pointer; border: none; width: 100%; margin-top: 1rem;
+        }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-secondary { background: var(--secondary); color: white; }
+
+        /* PREVIEW INTERFACE STYLING */
+        #previewInterface {
+            display: none; background: var(--bg); padding: 2.5rem;
+            border-radius: 20px; border: 1px dashed var(--primary); margin-top: 2rem;
+        }
+        .preview-item { margin-bottom: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+        .preview-label { color: var(--primary); font-size: 0.8rem; text-transform: uppercase; font-weight: 800; }
+        .preview-value { font-size: 1.1rem; font-weight: 500; margin-top: 4px; }
+
+        .cv-box {
+            background: var(--surface); padding: 1rem; border-radius: 10px;
+            display: flex; align-items: center; gap: 10px; border: 1px solid var(--primary);
+        }
+
+        footer { padding: 3rem; text-align: center; opacity: 0.7; font-size: 0.9rem; }
+         
+         /* Standard Footer */
+        footer {
+             background: var(--surface);
+              padding: 5rem 6% 2rem; 
+              border-top: 1px solid var(--border);
+               margin-top: 4rem; 
+            }
+        .footer-grid {
+             display: grid;
+              grid-template-columns: 2fr 1fr 1fr;
+               gap: 4rem; margin-bottom: 4rem; 
+            }
+        .footer-col h3 {
+             color: var(--primary); 
+             margin-bottom: 1.5rem;
+             }
+        .footer-col p, .footer-col a {
+             color: var(--text-muted);
+              text-decoration: none;
+               margin-bottom: 0.8rem;
+                display: block; 
+            }
+        .footer-bottom { 
+            border-top: 1px solid var(--border);
+             padding-top: 2rem;
+              text-align: center;
+               color: var(--text-muted);
+             }
+
+        @media (max-width: 768px) {
+            .explore-hero h1 { 
+                font-size: 2.5rem;
+             }
+            .footer-grid {
+                 grid-template-columns: 1fr;
+                 }
+        }
+         .btn {
+            background: var(--primary);
+             color: white;
+              padding: 1rem 2rem;
+            border-radius: 14px;
+             text-decoration: none;
+              font-weight: 700;
+            display: inline-block;
+             border: none; 
+             text-align: center;
+              width: 100%;
+        }
+        .btn-sec {
+             background: var(--secondary);
+             }
+       
+        
+        .h1{
+            color: orange;
+        }
+         select, .theme-btn {
+            background: var(--surface-accent); 
+            color: var(--text); 
+            border: 1px solid var(--border);
+            padding: 0.5rem 0.8rem;
+             border-radius: 10px;
+              cursor: pointer; 
+              font-size: 0.85rem;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <h2 style="color:var(--primary)">Beacon Education🖱</h2>
+    <a href="index.html" style="color:var(--text); text-decoration:none;"> Home</a>
+     <a href="create.html" style="color:var(--text); text-decoration:none;">Login</a>
+      <a href="contact.html" style="color:var(--text); text-decoration:none;">Contact</a>
+       <a href="resources.html" style="color:var(--text); text-decoration:none;">Resources</a>
+        <a href="our vision.html" style="color:var(--text); text-decoration:none;">our vision</a>
+         <a href="curriclum.html" style="color:var(--text); text-decoration:none;">Curriculum</a>
+        <a href="help center.html" style="color:var(--text); text-decoration:none;">Help center</a>
+        <a href="teacher.html" style="color:blue; text-decoration:none;">Teacher</a>
+
+         <a href="create.html" class="btn" style="padding: 0.6rem 1.2rem; font-size: 0.8rem; width: auto;">Log In</a>
+
+</nav>
+
+<div class="container">
+    <div class="app-card">
+        
+        <div id="uploadForm">
+            <h2 style="margin-bottom: 0.5rem;">Teacher Application</h2>
+            <p style="color: var(--primary); margin-bottom: 2rem;">Please fill in your details and upload your CV.</p>
+            
+            <div class="form-grid">
+                <div class="input-group">
+                    <label>Full Name</label>
+                    <input type="text" id="tName" placeholder="Enter name">
+                </div>
+                <div class="input-group">
+                    <label>Subject Expertise</label>
+                    <input type="text" id="tSubject" placeholder="e.g. Mathematics">
+                </div>
+                <div class="input-group">
+                    <label>Teaching Level</label>
+                    <select id="tLevel">
+                        <option>Kindergarten</option>
+                        <option>Primary</option>
+                        <option>Secondary</option>
+                        <option>TSS</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Experience (Years)</label>
+                    <input type="number" id="tExp" placeholder="0">
+                </div>
+                <div class="input-group" style="grid-column: span 2;">
+                    <label>Upload CV (PDF/Image)</label>
+                    <input type="file" id="tCV" onchange="previewCVName()">
+                </div>
+            </div>
+            <button class="btn btn-primary" onclick="generatePreview()">Generate Application Preview</button>
+        </div>
+
+        <div id="previewInterface">
+            <h2 style="margin-bottom: 1.5rem; color: var(--secondary);">Review Your Profile</h2>
+            
+            <div class="preview-item">
+                <p class="preview-label">Full Name</p>
+                <p class="preview-value" id="pV-name"></p>
+            </div>
+            <div class="preview-item">
+                <p class="preview-label">Subject & Level</p>
+                <p class="preview-value" id="pV-sub"></p>
+            </div>
+            <div class="preview-item">
+                <p class="preview-label">Teaching Experience</p>
+                <p class="preview-value" id="pV-exp"></p>
+            </div>
+            
+            <div class="preview-item">
+                <p class="preview-label">Uploaded Document</p>
+                <div class="cv-box">
+                    <span style="font-size: 1.5rem;">📄</span>
+                    <p id="pV-cvName">No file selected</p>
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 1rem;">
+                <button class="btn" style="background: gray; color: white;" onclick="editForm()">Edit Info</button>
+                <button class="btn btn-secondary" onclick="finalSubmit()">Confirm & Submit Application</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h3>Beacon Education<span><a href="index.html">🖱</a></span></h3>
+            <p>Elevating education through digital innovation across Rwanda.</p>
+            <p>📍 Kigali, Rwanda</p>
+        </div>
+        <div class="footer-col">
+            <h4 class="h1">NAVIGATE</h4><br>
+            <a href="our vision.html">Our Vision</a>
+            <a href="teacher.html">Teacher Portal</a>
+            <a href="resources.html">Resources</a>
+             <a href="help center.html">Help center</a>
+              <a href="about.html">about</a>
+               <a href="curriclum.html">curriculum</a>
+                <a href="create.html">Login</a>
+        </div>
+        <div class="footer-col">
+            <h4 class="h1">SUPPORT</h4><br>
+            <a href="mailto:bedakwihangana1@gmail.com">Contact Us</a>
+            <a href="privacy policy.html">Privacy Policy</a>
+            <a href="terms of use.html">Terms of Service</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        © 2026 Beacon Education🖱. Empowering the Next Generation.
+    </div>
+</footer>
+<script>
+    function generatePreview() {
+        const name = document.getElementById('tName').value;
+        const sub = document.getElementById('tSubject').value;
+        const level = document.getElementById('tLevel').value;
+        const exp = document.getElementById('tExp').value;
+        const cv = document.getElementById('tCV').files[0];
+
+        if(!name || !sub || !cv) {
+            alert("Please complete the form and upload your CV first.");
+            return;
+        }
+
+        // Fill Preview Data
+        document.getElementById('pV-name').innerText = name;
+        document.getElementById('pV-sub').innerText = sub + " (" + level + ")";
+        document.getElementById('pV-exp').innerText = exp + " Years";
+        document.getElementById('pV-cvName').innerText = cv.name;
+
+        // Toggle Interface
+        document.getElementById('uploadForm').style.display = 'none';
+        document.getElementById('previewInterface').style.display = 'block';
+    }
+
+    function editForm() {
+        document.getElementById('uploadForm').style.display = 'block';
+        document.getElementById('previewInterface').style.display = 'none';
+    }
+
+    function finalSubmit() {
+        alert("Your professional profile has been submitted successfully! We will contact you soon.");
+        window.location.href = "dash board of teacher.html";
+    }
+
+    function previewCVName() {
+        const file = document.getElementById('tCV').files[0];
+        if(file) console.log("CV Detected: " + file.name);
+    }
+</script>
+
+</body>
+</html>
